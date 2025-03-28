@@ -23,11 +23,12 @@ metadata:
 spec:
   interval: 1m
   serviceAccountName: kustomize-controller
-  targetNamespace: flux-system
+  targetNamespace: kubocd
   storageNamespace: flux-system
   releaseName: kubocd-ctrl
   timeout: 5m
   install:
+    createNamespace: true
     remediation:
       retries: 30
       remediateLastFailure: true
