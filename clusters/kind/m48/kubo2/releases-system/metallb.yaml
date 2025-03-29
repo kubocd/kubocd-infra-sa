@@ -8,6 +8,7 @@ metadata:
   namespace: kubocd
 spec:
   description: The load balancer
+  protected: true
   application:
     repository: quay.io/kubocd/applications/metallb
     tag: 0.1.0

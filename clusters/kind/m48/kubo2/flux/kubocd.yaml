@@ -43,6 +43,7 @@ spec:
   values:
     image:
       repository: ghcr.io/sergealexandre/kubocd
+      #repository: quay.io/kubocd/kubocd
       pullPolicy: Always
     extraNamespaces:
       - name: contexts
@@ -89,7 +90,9 @@ spec:
         # Other OciRepositorySpec elements
       clusterRoles:
         - storage
-      imageRedirects: []
+      imageRedirects:
+        - oldPrefix: quay.io/kubocd/
+          newPrefix: ghcr.io/sergealexandre/kubocd/
       defaultContexts:
         - name: cluster
           namespace: contexts
