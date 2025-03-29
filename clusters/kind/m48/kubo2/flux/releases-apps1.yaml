@@ -5,7 +5,8 @@ metadata:
   name: releases-apps1
   namespace: flux-system
 spec:
-  interval: 30s
+  interval: 10m0s
+  retryInterval: 10s
   path: ./clusters/kind/m48/kubo2/releases-apps1
   prune: true
   sourceRef:
