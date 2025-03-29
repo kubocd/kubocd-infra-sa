@@ -5,7 +5,7 @@ apiVersion: kubocd.kubotal.io/v1alpha1
 kind: Release
 metadata:
   name: redis
-  namespace: kubocd
+  namespace: default
 spec:
   description: A redis server with its front (Optional)
   parameters:
