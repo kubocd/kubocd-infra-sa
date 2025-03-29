@@ -7,6 +7,7 @@ metadata:
   name: redis
   namespace: kubocd
 spec:
+  description: A redis server with its front (Optional)
   parameters:
     commander:
       tls: true
