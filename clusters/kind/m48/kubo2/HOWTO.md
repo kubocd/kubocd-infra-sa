@@ -56,7 +56,7 @@ flux bootstrap github \
 
 ```
 
-And git pull on kad-infra-sa
+And git pull on kad-infra-sa to update our local copy
 
 # Decrease reaction time on dependencies
 
