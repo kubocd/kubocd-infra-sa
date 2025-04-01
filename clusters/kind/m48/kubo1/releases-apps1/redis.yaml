@@ -1,0 +1,19 @@
+
+
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: redis
+  namespace: default
+spec:
+  description: A redis server with its front (Optional)
+  parameters:
+    commander:
+      tls: true
+  application:
+    repository: quay.io/kubocd/applications/redis
+    tag: 0.1.0
+    interval: 30m
+  debug:
+    dumpContext: true

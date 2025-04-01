@@ -1,0 +1,18 @@
+
+
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: podinfo
+  namespace: default
+spec:
+  description: A first sample release of podinfo
+  application:
+    repository: quay.io/kubocd/applications/podinfo
+    tag: 0.1.0
+    interval: 30m
+  parameters:
+    tls: true
+  debug:
+    dumpContext: true
