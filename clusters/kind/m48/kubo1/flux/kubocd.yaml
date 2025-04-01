@@ -48,46 +48,31 @@ spec:
     extraNamespaces:
       - name: contexts
     contexts:
-      - name: global
-        namespace: contexts
-        parents: []
-        context:
-          # This is for cert-manager's users
-          certificateIssuer:
-            public: cluster-odp
-            internal: cluster-internal
-        protected: true
-      - name: kind
-        namespace: contexts
-        description: For all kind based clusters
-        parents:
-          - name: global
-        context:
-          storageClass:
-            data: standard
-            workspace: standard
-          ingress:
-            className: nginx
-        protected: true
       - name: cluster
         namespace: contexts
         description: Context specific to the cluster 'kubo1'
-        parents:
-          - name: kind
         context:
           cluster:
             name: kubo1
             domain: kubo1.mbp
           ingress:
+            className: nginx
             hostPostfix: ingress.kubo1.mbp
             kubernetes:
               enabled: true
+          storageClass:
+            data: standard
+            workspace: standard
+          # This is for cert-manager's users
+          certificateIssuer:
+            public: cluster-odp
+            internal: cluster-internal
         protected: true
     config:
-#      kuboAppRedirects:
-#        - oldPrefix: quay.io/kubocd/
-#          newPrefix: ghcr.io/sergealexandre/kubocd/
-#        # Other OciRepositorySpec elements
+      kuboAppRedirects:
+        - oldPrefix: quay.io/kubocd/
+          newPrefix: ghcr.io/sergealexandre/kubocd/
+        # Other OciRepositorySpec elements
       clusterRoles:
         - storage
 #      imageRedirects:
