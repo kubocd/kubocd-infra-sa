@@ -70,9 +70,9 @@ spec:
         protected: true
     config:
       kuboAppRedirects:
-        - oldPrefix: quay.io/kubocd/applications
+#        - oldPrefix: quay.io/kubocd/applications
+#          newPrefix: host.docker.internal:5001/applications
           #newPrefix: ghcr.io/sergealexandre/kubocd/applications
-          newPrefix: host.docker.internal:5001/applications
         # Other OciRepositorySpec elements
       clusterRoles:
         - storage
