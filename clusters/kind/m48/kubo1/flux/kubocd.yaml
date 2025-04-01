@@ -72,7 +72,7 @@ spec:
       kuboAppRedirects:
         - oldPrefix: quay.io/kubocd/applications
           #newPrefix: ghcr.io/sergealexandre/kubocd/applications
-          newPrefix: localhost:5001/applications
+          newPrefix: host.docker.internal:5001/applications
         # Other OciRepositorySpec elements
       clusterRoles:
         - storage
