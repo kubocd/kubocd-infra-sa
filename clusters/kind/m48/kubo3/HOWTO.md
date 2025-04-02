@@ -99,3 +99,30 @@ patches:
       kind: Deployment
       name: "(kustomize-controller|helm-controller)"
 ```
+
+# Deployment kubocd
+
+```
+cd ..../kubocd-infra-sa/clusters/kind/m48/kubo3
+kubectl create ns kubocd
+
+helm upgrade -i -n kubocd kubocd-ctrl  ../../../../../kubocd/helm/kubocd/ --values ./values-ctrl.yaml
+```
+
+If cert-manager is ok:
+
+```
+helm upgrade -i -n kubocd kubocd-wh  ../../../../../kubocd/helm/kubocd/ --values ./values-wh.yaml
+```
+
+# Uninstall kubocd
+
+```
+kubectl get releases --all-namespaces
+helm -n kubocd uninstall kubocd
+kubectl delete ns kubocd
+kubectl delete crds releases.kubocd.kubotal.io contexts.kubocd.kubotal.io configs.kubocd.kubotal.io
+
+kubectl get crds | grep kubocd
+
+```
