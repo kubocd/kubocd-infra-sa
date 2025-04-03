@@ -72,6 +72,8 @@ spec:
       kuboAppRedirects:
         - oldPrefix: quay.io/kubocd/applications
           newPrefix: host.docker.internal:5001/applications
+          certSecretRef:
+            name: certs-bundle
           #newPrefix: ghcr.io/sergealexandre/kubocd/applications
         # Other OciRepositorySpec elements
       clusterRoles:
