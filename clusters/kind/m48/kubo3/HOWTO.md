@@ -119,7 +119,8 @@ helm upgrade -i -n kubocd kubocd-wh  ../../../../../kubocd/helm/kubocd/ --values
 
 ```
 kubectl get releases --all-namespaces
-helm -n kubocd uninstall kubocd
+helm -n kubocd uninstall kubocd-wh
+helm -n kubocd uninstall kubocd-ctrl
 kubectl delete ns kubocd
 kubectl delete crds releases.kubocd.kubotal.io contexts.kubocd.kubotal.io configs.kubocd.kubotal.io
 
