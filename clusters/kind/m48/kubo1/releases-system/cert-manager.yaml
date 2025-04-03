@@ -12,6 +12,12 @@ spec:
   parameters:
     trust:
       enabled: true
+      bundle:
+        target:
+          configMap:
+            enabled: true
+          secret:
+            enabled: true
     issuers:
       caClusterIssuers:
         - name: cluster-odp
@@ -21,7 +27,7 @@ spec:
         - name: cluster-internal
   application:
     repository: quay.io/kubocd/applications/cert-manager
-    tag: 0.1.0
+    tag: 0.1.1
     interval: 30m
   debug:
     dumpContext: true
