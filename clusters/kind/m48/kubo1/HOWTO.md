@@ -8,7 +8,9 @@ cat >$(brew --prefix)/etc/dnsmasq.d/kubo1 <<EOF
 address=/first.pool.kubo1.mbp/172.18.103.1 
 address=/.ingress.kubo1.mbp/172.18.103.1 
 address=/ldap.kubo1.mbp/172.18.103.2 
-address=/last.pool.kubo1.mbp/172.18.103.4 
+address=/minio1.kubo1.mbp/172.18.103.3 
+address=/minio2.kubo1.mbp/172.18.103.4 
+address=/last.pool.kubo1.mbp/172.18.103.9 
 EOF
 
 
@@ -18,6 +20,7 @@ sudo brew services restart dnsmasq
 sudo killall -HUP mDNSResponder
 
 ping xxxx.ingress.kubo1.mbp
+ping minio2.kubo1.mbp
 ```
 
 

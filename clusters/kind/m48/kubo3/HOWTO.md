@@ -8,6 +8,8 @@ cat >$(brew --prefix)/etc/dnsmasq.d/kubo3 <<EOF
 address=/first.pool.kubo3.mbp/172.18.105.1 
 address=/.ingress.kubo3.mbp/172.18.105.1 
 address=/ldap.kubo3.mbp/172.18.105.2 
+address=/minio1.kubo3.mbp/172.18.105.3 
+address=/minio2.kubo3.mbp/172.18.105.4 
 address=/last.pool.kubo3.mbp/172.18.105.4 
 EOF
 

@@ -64,3 +64,31 @@ rehash: warning: skipping ca-certificates.crt,it does not contain exactly one ce
 Running hooks in /etc/ca-certificates/update.d...
 done.
 ```
+
+
+# Registry UI
+
+https://github.com/Joxit/docker-registry-ui
+
+```
+docker run \
+  --name registry-ui \
+  -d \
+  -e SINGLE_REGISTRY=true \
+  -e REGISTRY_TITLE="Docker Registry UI" \
+  -e DELETE_IMAGES=true \
+  -e SHOW_CONTENT_DIGEST=true \
+  -e NGINX_PROXY_PASS_URL="https://host.docker.internal:5001" \
+  -e SHOW_CATALOG_NB_TAGS=true \
+  -e CATALOG_MIN_BRANCHES=1 \
+  -e CATALOG_MAX_BRANCHES=1 \
+  -e TAGLIST_PAGE_SIZE=100 \
+  -e REGISTRY_SECURED=false \
+  -e CATALOG_ELEMENTS_LIMIT=1000 \
+  -p 5003:80 \
+  joxit/docker-registry-ui:main
+
+
+```
+
+http://localhost:5003/
