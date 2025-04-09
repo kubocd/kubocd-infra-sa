@@ -1,0 +1,50 @@
+
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: ingress-nginx
+  namespace: default
+spec:
+  interval: 5m
+  url: https://kubernetes.github.io/ingress-nginx
+
+
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ingress-nginx-main
+  namespace: default
+spec:
+  chart:
+    spec:
+      chart: ingress-nginx
+      interval: 30m0s
+      sourceRef:
+        kind: HelmRepository
+        name: ingress-nginx
+        namespace: default
+      version: 4.12.1
+  install:
+    createNamespace: true
+  interval: 30m0s
+  releaseName: ingress-nginx-main
+  targetNamespace: ingress-nginx
+  values:
+    admissionWebhooks:
+      patch:
+        image:
+          image: ingress-nginx/kube-webhook-certgen
+    controller:
+      image:
+        image: ingress-nginx/controller
+    defaultBackend:
+      image:
+        image: defaultbackend-amd64
+    global:
+      image:
+        registry: registry.k8s.io
+
+
