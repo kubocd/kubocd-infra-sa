@@ -78,6 +78,6 @@ spec:
   targetNamespace: metallb
   values:
     ipRanges:
-      - first: 172.18.105.1
-        last: 172.18.105.4
+      - first: 172.18.103.1
+        last: 172.18.103.9
 
