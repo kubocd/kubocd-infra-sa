@@ -5,9 +5,10 @@ kubo1:
 The cluster to work on kubocd:
 - NO kubocd installed
 - FluxCD installed
-- Cert-manager
-- Ingress
-- metallb
+- Installed as helm releases:
+  - Cert-manager
+  - Ingress
+  - metallb
 
 kubo2:
 A cluster with system auto bootstrap as a demo sandbox
