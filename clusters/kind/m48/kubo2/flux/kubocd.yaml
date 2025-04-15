@@ -42,8 +42,8 @@ spec:
     namespace: flux-system
   values:
     image:
-      repository: host.docker.internal:5001/kubocd/kubocd
-      #repository: quay.io/kubocd/kubocd
+      #repository: host.docker.internal:5001/kubocd/kubocd
+      repository: quay.io/kubocd/kubocd
       pullPolicy: Always
     extraNamespaces:
       - name: contexts
@@ -78,8 +78,8 @@ spec:
       clusterRoles:
         - storage
       imageRedirects:
-      - oldPrefix: quay.io/kubocd/kubocd
-        newPrefix: host.docker.internal:5001/kubocd/kubocd
+#      - oldPrefix: quay.io/kubocd/kubocd
+#        newPrefix: host.docker.internal:5001/kubocd/kubocd
       defaultContexts:
         - name: cluster
           namespace: contexts
