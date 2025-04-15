@@ -48,22 +48,27 @@ spec:
     extraNamespaces:
       - name: contexts
     contexts:
-      cluster:
-        name: kubo3
-        domain: kubo3.mbp
-      ingress:
-        className: nginx
-        hostPostfix: ingress.kubo2.mbp
-        kubernetes:
-          enabled: true
-      storageClass:
-        data: standard
-        workspace: standard
-      # This is for cert-manager's users
-      certificateIssuer:
-        public: cluster-odp
-        internal: cluster-internal
+      - name: cluster
+        namespace: contexts
         protected: true
+        description: Context specific to the cluster 'kubo3'
+        context:
+          cluster:
+            name: kubo3
+            domain: kubo3.mbp
+          ingress:
+            className: nginx
+            hostPostfix: ingress.kubo2.mbp
+            kubernetes:
+              enabled: true
+          storageClass:
+            data: standard
+            workspace: standard
+          # This is for cert-manager's users
+          certificateIssuer:
+            public: cluster-odp
+            internal: cluster-internal
+            protected: true
     config:
       packageRedirects:
 #        - oldPrefix: quay.io/kubocd/packages
