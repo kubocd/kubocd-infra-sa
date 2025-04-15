@@ -11,6 +11,7 @@ extraNamespaces:
 contexts:
   - name: cluster
     namespace: contexts
+    protected: true
     description: Context specific to the cluster 'kubo3'
     context:
       cluster:
@@ -28,20 +29,17 @@ contexts:
       certificateIssuer:
         public: cluster-odp
         internal: cluster-internal
-    protected: true
 config:
-  kuboAppRedirects:
-#    - oldPrefix: quay.io/kubocd/applications
-#      newPrefix: host.docker.internal:5001/applications
+  packageRedirects:
+#    - oldPrefix: quay.io/kubocd/packages
+#      newPrefix: host.docker.internal:5001/packages
 #      certSecretRef:
 #        name: certs-bundle
-  #newPrefix: ghcr.io/sergealexandre/kubocd/applications
-  # Other OciRepositorySpec elements
   clusterRoles:
     - storage
-  #      imageRedirects:
-  #        - oldPrefix: quay.io/kubocd/
-  #          newPrefix: ghcr.io/sergealexandre/kubocd/
+  imageRedirects:
+    - oldPrefix: quay.io/kubocd/kubocd
+      newPrefix: host.docker.internal:5001/kubocd/kubocd
   defaultContexts:
     - name: cluster
       namespace: contexts
@@ -50,9 +48,8 @@ controller:
   replicaCount: 1
   logger:
     mode: dev
-    level: debug
+    level: info
   metrics:
     enabled: false
     secured: false
-webhook:
-  enabled: false
+

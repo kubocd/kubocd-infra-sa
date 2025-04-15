@@ -6,14 +6,11 @@ image:
   #repository: quay.io/kubocd/kubocd
   repository: host.docker.internal:5001/kubocd/kubocd
   pullPolicy: Always
-controller:
-  enabled: false
 webhook:
-  enabled: true
   replicaCount: 1
   logger:
     mode: dev
-    level: debug
+    level: info
   metrics:
     enabled: false
     secured: false

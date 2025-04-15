@@ -1,0 +1,14 @@
+
+
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: cnpg
+  namespace: default
+spec:
+  protected: false
+  package:
+    repository: quay.io/kubocd/packages/cnpg
+    tag: 0.23.2-p01
+    interval: 30m

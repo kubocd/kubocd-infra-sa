@@ -1,0 +1,28 @@
+
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: minio1
+spec:
+  description: S3 storage sever
+  protected: false
+  package:
+    repository: quay.io/kubocd/packages/minio
+    tag: 5.4.0-p01
+    interval: 30s
+  targetNamespace: minio1
+  createNamespace: true
+  parameters:
+    rootUser: minio
+    rootPassword: minio123
+    storage:
+      driveSize: 10G
+    ingresses:
+      public:
+        enabled: true
+      clearText:
+        enabled: true
+    vip:
+      enabled: true
+      host: "{{ .Release.metadata.name }}.{{ .Context.cluster.domain }}"

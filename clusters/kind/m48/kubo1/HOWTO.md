@@ -49,7 +49,6 @@ EOF
 kind create cluster --config /tmp/kubo1-config.yaml
 ```
 
-
 ```
 docker exec -it kubo1-control-plane bash -c "update-ca-certificates"
 ```
@@ -67,7 +66,7 @@ done.
 ```
 export GITHUB_USER=SergeAlexandre
 export GITHUB_REPO=kubocd-infra-sa
-export GIT_BRANCH=v0.1.2
+export GIT_BRANCH=v0.2.0
 export GITHUB_TOKEN=
 
 flux bootstrap github \

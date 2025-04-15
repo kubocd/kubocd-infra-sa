@@ -8,11 +8,9 @@ metadata:
   namespace: default
 spec:
   description: A first sample release of podinfo
-  application:
-    repository: quay.io/kubocd/applications/podinfo
-    tag: 0.1.0
+  package:
+    repository: quay.io/kubocd/packages/podinfo
+    tag: 6.7.1-p01
     interval: 30m
   parameters:
     tls: true
-  debug:
-    dumpContext: true

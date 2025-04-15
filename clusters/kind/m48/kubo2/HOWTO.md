@@ -8,7 +8,9 @@ cat >$(brew --prefix)/etc/dnsmasq.d/kubo2 <<EOF
 address=/first.pool.kubo2.mbp/172.18.104.1 
 address=/.ingress.kubo2.mbp/172.18.104.1 
 address=/ldap.kubo2.mbp/172.18.104.2 
-address=/last.pool.kubo2.mbp/172.18.104.4 
+address=/minio1.kubo2.mbp/172.18.104.3
+address=/minio2.kubo2.mbp/172.18.104.4 
+address=/last.pool.kubo2.mbp/172.18.104.9 
 EOF
 
 
@@ -42,7 +44,7 @@ kind create cluster --config /tmp/kubo2-config.yaml
 ```
 export GITHUB_USER=SergeAlexandre
 export GITHUB_REPO=kubocd-infra-sa
-export GIT_BRANCH=main
+export GIT_BRANCH=0.2.0
 export GITHUB_TOKEN=
 
 flux bootstrap github \

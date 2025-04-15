@@ -66,7 +66,7 @@ done.
 ```
 export GITHUB_USER=SergeAlexandre
 export GITHUB_REPO=kubocd-infra-sa
-export GIT_BRANCH=v0.1.2
+export GIT_BRANCH=v0.2.0
 export GITHUB_TOKEN=
 
 flux bootstrap github \
@@ -108,13 +108,13 @@ patches:
 cd ..../kubocd-infra-sa/clusters/kind/m48/kubo3
 kubectl create ns kubocd
 
-helm upgrade -i -n kubocd kubocd-ctrl  ../../../../../kubocd/helm/kubocd/ --values ./values-ctrl.yaml
+helm upgrade -i -n kubocd kubocd-ctrl  ../../../../../kubocd/helm/kubocd-ctrl/ --values ./values-ctrl.yaml
 ```
 
 If cert-manager is ok:
 
 ```
-helm upgrade -i -n kubocd kubocd-wh  ../../../../../kubocd/helm/kubocd/ --values ./values-wh.yaml
+helm upgrade -i -n kubocd kubocd-wh  ../../../../../kubocd/helm/kubocd-wh/ --values ./values-wh.yaml
 ```
 
 # Uninstall kubocd

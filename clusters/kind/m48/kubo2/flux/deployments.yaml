@@ -7,7 +7,7 @@ metadata:
 spec:
   interval: 10m0s
   retryInterval: 10s
-  path: ./clusters/kind/m48/kubo2/releases-system
+  path: ./clusters/kind/m48/kubo2/deployments
   prune: true
   sourceRef:
     kind: GitRepository

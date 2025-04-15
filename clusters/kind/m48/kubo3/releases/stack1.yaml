@@ -8,10 +8,8 @@ metadata:
   namespace: default
 spec:
   description: "Test stack with redis and podinfo"
-  application:
-    repository: quay.io/kubocd/applications/stack1
+  package:
+    repository: quay.io/kubocd/packages/stack1
     tag: 0.1.0
     interval: 30m
   targetNamespace: stack1
-  debug:
-    dumpContext: true

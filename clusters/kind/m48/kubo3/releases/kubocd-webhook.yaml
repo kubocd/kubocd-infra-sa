@@ -8,11 +8,9 @@ metadata:
   namespace: kubocd
 spec:
   description: Second stage of kubocd installation
-  application:
-    repository: quay.io/kubocd/applications/kubocd-webhooks
-    tag: 0.1.0
+  package:
+    repository: quay.io/kubocd/packages/kubocd-webhooks
+    tag: v0.2.0-snapshot-p01
     interval: 30m
   parameters:
     replicaCount: 1
-  debug:
-    dumpContext: true

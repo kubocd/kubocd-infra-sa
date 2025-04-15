@@ -1,0 +1,16 @@
+
+
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: redis
+  namespace: default
+spec:
+  parameters:
+    commander:
+      tls: true
+  package:
+    repository: quay.io/kubocd/packages/redis
+    tag: 20.6.1-p01
+    interval: 30m
