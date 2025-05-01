@@ -41,10 +41,19 @@ EOF
 kind create cluster --config /tmp/kubo2-config.yaml
 ```
 
+
+Remove auto-restart
+
+```
+docker update --restart=no kubo2-control-plane
+```
+
+COMMIT LAST UPDATE ON kubocd-infra-sa
+
 ```
 export GITHUB_USER=SergeAlexandre
 export GITHUB_REPO=kubocd-infra-sa
-export GIT_BRANCH=v0.2.0
+export GIT_BRANCH=main
 export GITHUB_TOKEN=
 
 flux bootstrap github \

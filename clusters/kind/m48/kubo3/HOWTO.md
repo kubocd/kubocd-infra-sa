@@ -63,6 +63,13 @@ Running hooks in /etc/ca-certificates/update.d...
 done.
 ```
 
+Remove auto-restart
+
+```
+docker update --restart=no kubo1-control-plane
+```
+
+
 ```
 export GITHUB_USER=SergeAlexandre
 export GITHUB_REPO=kubocd-infra-sa

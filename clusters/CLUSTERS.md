@@ -12,7 +12,7 @@ The cluster to work on kubocd:
 
 kubo2:
 A cluster with system auto bootstrap as a demo sandbox
-kubocd v0.1.1
+kubocd v0.2.1
 
 kubo3:
 
