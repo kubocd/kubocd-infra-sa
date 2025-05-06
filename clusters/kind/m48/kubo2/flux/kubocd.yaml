@@ -68,7 +68,6 @@ spec:
           certificateIssuer:
             public: cluster-odp
             internal: cluster-internal
-            protected: true
     config:
       packageRedirects:
 #        - oldPrefix: quay.io/kubocd/packages

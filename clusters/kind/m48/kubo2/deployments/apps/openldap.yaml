@@ -11,7 +11,7 @@ spec:
   description: An LDAP server
   package:
     repository: quay.io/kubocd/packages/openldap
-    tag: 4.4.3-p01
+    tag: 4.2.2-p01
     interval: 30m
   targetNamespace: openldap
   createNamespace: true
@@ -22,6 +22,7 @@ spec:
     config:
       password: admin123
     customLdifFiles:
+      # To generate passwords: 'slappasswd -s myPassword' on an ldap node
       00-root.ldif: |-
         # Root creation
         dn: dc=odp,dc=com
