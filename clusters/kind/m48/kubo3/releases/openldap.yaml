@@ -1,4 +1,5 @@
 
+# To generate passwords: 'slappasswd -s myPassword' on an ldap node
 
 ---
 apiVersion: kubocd.kubotal.io/v1alpha1
@@ -11,11 +12,13 @@ spec:
   description: An LDAP server
   package:
     repository: quay.io/kubocd/packages/openldap
-    tag: 4.4.3-p01
+    tag: 4.3.3-p01
     interval: 30m
   targetNamespace: openldap
   createNamespace: true
   parameters:
+    adminIngressHost: ldapadmin
+    ldapIngressHost: ldap
     ldapDomain: "odp.com"
     admin:
       password: admin123

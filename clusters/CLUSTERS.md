@@ -17,4 +17,4 @@ kubocd v0.2.1
 kubo3:
 
 A naked cluster, with fluxCD. to test kubocd / base apps evolutions
-kubocd v0.1.2-snapshot
+kubocd v0.2.2-snapshot

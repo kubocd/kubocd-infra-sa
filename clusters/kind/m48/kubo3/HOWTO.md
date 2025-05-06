@@ -8,8 +8,10 @@ cat >$(brew --prefix)/etc/dnsmasq.d/kubo3 <<EOF
 address=/first.pool.kubo3.mbp/172.18.105.1 
 address=/.ingress.kubo3.mbp/172.18.105.1 
 address=/ldap.kubo3.mbp/172.18.105.2 
-address=/minio1.kubo3.mbp/172.18.105.3 
+address=/minio1.kubo3.mbp/172.18.105.3
 address=/minio2.kubo3.mbp/172.18.105.4 
+address=/ldap422.kubo3.mbp/172.18.105.7 
+address=/ldap433.kubo3.mbp/172.18.105.8 
 address=/last.pool.kubo3.mbp/172.18.105.9
 EOF
 
@@ -117,6 +119,14 @@ kubectl create ns kubocd
 
 helm upgrade -i -n kubocd kubocd-ctrl  ../../../../../kubocd/helm/kubocd-ctrl/ --values ./values-ctrl.yaml
 ```
+
+```
+kubectl apply -f releases/cert-manager.yaml 
+kubectl apply -f releases/ingress-nginx.yaml 
+kubectl apply -f releases/metallb.yaml 
+
+```
+
 
 If cert-manager is ok:
 

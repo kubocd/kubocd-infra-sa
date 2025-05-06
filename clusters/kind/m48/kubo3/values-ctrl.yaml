@@ -19,7 +19,7 @@ contexts:
         domain: kubo3.mbp
       ingress:
         className: nginx
-        hostPostfix: ingress.kubo3.mbp
+        domain: ingress.kubo3.mbp
         kubernetes:
           enabled: true
       storageClass:

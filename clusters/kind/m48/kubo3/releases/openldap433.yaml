@@ -1,11 +1,12 @@
 
+# To generate passwords: 'slappasswd -s myPassword' on an ldap node
 
 ---
 apiVersion: kubocd.kubotal.io/v1alpha1
 kind: Release
 metadata:
-  name: openldap
-  namespace: default
+  name: openldap433
+  namespace: kubocd
 spec:
   protected: false
   description: An LDAP server
@@ -13,16 +14,17 @@ spec:
     repository: quay.io/kubocd/packages/openldap
     tag: 4.3.3-p01
     interval: 30m
-  targetNamespace: openldap
+  targetNamespace: openldap433
   createNamespace: true
   parameters:
+    adminIngressHost: ldapadmin433
+    ldapIngressHost: ldap433
     ldapDomain: "odp.com"
     admin:
       password: admin123
     config:
       password: admin123
     customLdifFiles:
-      # To generate passwords: 'slappasswd -s myPassword' on an ldap node
       00-root.ldif: |-
         # Root creation
         dn: dc=odp,dc=com
