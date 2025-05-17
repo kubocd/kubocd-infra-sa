@@ -29,6 +29,8 @@ contexts:
       certificateIssuer:
         public: cluster-odp
         internal: cluster-internal
+      certsBundleSecret: certs-bundle
+
 config:
   packageRedirects:
 #    - oldPrefix: quay.io/kubocd/packages
