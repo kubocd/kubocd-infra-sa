@@ -4,13 +4,13 @@
 apiVersion: kubocd.kubotal.io/v1alpha1
 kind: Release
 metadata:
-  name: cnpg
+  name: pgadmin
   namespace: kubocd
 spec:
   protected: false
   package:
-    repository: quay.io/kubocd/packages/cnpg
-    tag: 0.23.2-p01
+    repository: quay.io/kubocd/packages/pgadmin
+    tag: 1.44.0-p01
     interval: 30m
   targetNamespace: postgres
   createNamespace: true
