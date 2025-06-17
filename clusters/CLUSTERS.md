@@ -26,3 +26,10 @@ A cluster aimed to support the demo.
 - kubocd v0.2.1
 - Auto bootstrap
 - Only base system installed
+
+# kubo5
+
+A cluster aimed to work on klaim
+- kubocd v0.2.0
+- Auto bootstrap
+- Only base system installed
