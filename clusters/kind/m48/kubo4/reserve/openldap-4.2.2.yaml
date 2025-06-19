@@ -7,11 +7,11 @@ metadata:
   name: openldap
   namespace: default
 spec:
-  protected: true
+  protected: false
   description: An LDAP server
   package:
     repository: quay.io/kubocd/packages/openldap
-    tag: 4.3.3-p01
+    tag: 4.2.2-p01
     interval: 30m
   targetNamespace: openldap
   createNamespace: true
