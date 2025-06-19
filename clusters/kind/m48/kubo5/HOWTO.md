@@ -67,7 +67,6 @@ docker update --restart=no kubo5-control-plane
 COMMIT LAST UPDATE ON kubocd-infra-sa
 
 ```
-#export GITHUB_USER=SergeAlexandre
 export GITHUB_REPO=kubocd-infra-sa
 export GIT_BRANCH=main
 export GITHUB_TOKEN=

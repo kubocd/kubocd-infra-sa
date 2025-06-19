@@ -31,11 +31,6 @@ cat >/tmp/kubo4-config.yaml <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 name: kubo4
-nodes:
-  - role: control-plane
-    extraMounts:
-      - hostPath: /Users/sa/dev/certs/ca-odp.crt
-        containerPath: /usr/local/share/ca-certificates/ca-odp.crt
 networking:
   apiServerAddress: "127.0.0.1"
   apiServerPort: 5450
@@ -44,19 +39,8 @@ EOF
 
 ```
 kind create cluster --config /tmp/kubo4-config.yaml
-
-docker exec -it kubo4-control-plane bash -c "update-ca-certificates"
 ```
 
-Check `1 added`:
-
-```
-Updating certificates in /etc/ssl/certs...
-rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
-1 added, 0 removed; done.
-Running hooks in /etc/ca-certificates/update.d...
-done.
-```
 
 Remove auto-restart
 
@@ -67,13 +51,11 @@ docker update --restart=no kubo4-control-plane
 COMMIT LAST UPDATE ON kubocd-infra-sa
 
 ```
-export GITHUB_USER=SergeAlexandre
 export GITHUB_REPO=kubocd-infra-sa
 export GIT_BRANCH=main
 export GITHUB_TOKEN=
 
 flux bootstrap github \
---owner=${GITHUB_USER} \
 --repository=${GITHUB_REPO} \
 --branch=${GIT_BRANCH} \
 --interval 15s \
