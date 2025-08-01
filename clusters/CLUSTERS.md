@@ -29,7 +29,7 @@ A cluster aimed to support the demo.
 
 # kubo5
 
-A cluster aimed to work on klaim
-- kubocd v0.2.0
+A cluster aimed to work on OIDC 
+- kubocd v0.2.2
 - Auto bootstrap
 - Only base system installed
