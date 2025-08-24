@@ -70,6 +70,7 @@ spec:
             internal: cluster-internal
           oidc:
             issuerURL: https://kubauth.ingress.kubo5.mbp
+          networkPolicies: true
     config:
       packageRedirects:
 #        - oldPrefix: quay.io/kubocd/packages
