@@ -68,6 +68,8 @@ spec:
           certificateIssuer:
             public: cluster-odp
             internal: cluster-internal
+          oidc:
+            issuerURL: https://kubauth.ingress.kubo5.mbp
     config:
       packageRedirects:
 #        - oldPrefix: quay.io/kubocd/packages
