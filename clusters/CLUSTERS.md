@@ -32,4 +32,15 @@ A cluster aimed to support the demo.
 A cluster aimed to work on OIDC 
 - kubocd v0.2.2
 - Auto bootstrap
+- Only base system installed + openldap
+
+- Skas installed manually
+
+# kubo6
+
+Another cluster to work on OIDC (Api server integration)
+
+- kubocd v0.2.2
+- Auto bootstrap
 - Only base system installed
+
