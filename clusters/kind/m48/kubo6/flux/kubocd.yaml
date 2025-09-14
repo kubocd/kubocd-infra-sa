@@ -56,6 +56,7 @@ spec:
           cluster:
             name: kubo6
             domain: kubo6.mbp
+            apiServerURL: https://127.0.0.1:5452
           ingress:
             className: nginx
             domain: ingress.kubo6.mbp
@@ -69,6 +70,9 @@ spec:
             public: cluster-odp
             internal: cluster-internal
           networkPolicies: true
+          oidc:
+            issuerURL: https://kubauth.ingress.kubo5.mbp
+
     config:
       packageRedirects:
 #        - oldPrefix: quay.io/kubocd/packages
