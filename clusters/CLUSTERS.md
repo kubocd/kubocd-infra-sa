@@ -44,3 +44,11 @@ Another cluster to work on OIDC (Api server integration)
 - Auto bootstrap
 - Only base system installed
 
+# kubo7
+
+To validate okit-ac
+
+- kubocd v0.2.2
+- Auto bootstrap
+- Only base system installed
+
