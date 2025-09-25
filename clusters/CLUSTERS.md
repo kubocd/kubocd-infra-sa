@@ -38,11 +38,7 @@ A cluster aimed to work on OIDC
 
 # kubo6
 
-Another cluster to work on OIDC (Api server integration)
-
-- kubocd v0.2.2
-- Auto bootstrap
-- Only base system installed
+Test cluster for auto bootstrap with oidc (kubauth+okit)
 
 # kubo7
 
