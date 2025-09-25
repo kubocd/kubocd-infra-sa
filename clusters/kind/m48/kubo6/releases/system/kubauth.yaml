@@ -45,6 +45,8 @@ spec:
           - user: admin
             group: kubauth-admins
           - user: admin
+            group: admins
+          - user: admin
             group: system:masters
       oidc:
         oidcClients:
