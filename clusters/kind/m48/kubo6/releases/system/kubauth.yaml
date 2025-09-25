@@ -33,7 +33,7 @@ spec:
             spec:
               passwordHash: "$2a$12$0.GDdlFBEGEuDI5OKayVgOfdyiHnB4YPoFmyVmB2uHOWh36tr.d8y"  # admin
               commonNames:
-                - "Kubauth administrator"
+                - "System administrator"
           - login: john
             spec:
               passwordHash: "$2a$12$DMQMTqcTXo.1CZ8EqDxOt.echfP9oAjEJNnYIsbuMHCGrN54jsYXS"  # john
@@ -43,11 +43,7 @@ spec:
                 company: kubotal
         groupBindings:
           - user: admin
-            group: kubauth-admins
-          - user: admin
             group: admins
-          - user: admin
-            group: system:masters
       oidc:
         oidcClients:
           - name: public

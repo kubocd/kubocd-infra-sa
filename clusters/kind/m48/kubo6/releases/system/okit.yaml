@@ -30,6 +30,6 @@ spec:
     logger:
       level: debug
       mode: text
-    oidc:
-      usernamePrefix: "oidc-"
-      groupsPrefix: "oidc-"
+#    oidc:
+#      usernamePrefix: "oidc-"
+#      groupsPrefix: "oidc-"
