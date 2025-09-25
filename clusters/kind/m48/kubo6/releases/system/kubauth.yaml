@@ -37,10 +37,10 @@ spec:
           - login: john
             spec:
               passwordHash: "$2a$12$DMQMTqcTXo.1CZ8EqDxOt.echfP9oAjEJNnYIsbuMHCGrN54jsYXS"  # john
-            commonNames:
-              - "John DOE"
-            claims:
-              company: kubotal
+              commonNames:
+                - "John DOE"
+              claims:
+                company: kubotal
         groupBindings:
           - user: admin
             group: kubauth-admins
