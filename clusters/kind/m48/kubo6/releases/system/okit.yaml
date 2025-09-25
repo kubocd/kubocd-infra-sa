@@ -1,0 +1,32 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: okit
+  namespace: kubocd
+spec:
+  description: Kubeconfig info server
+  protected: false
+  package:
+    repository: quay.io/kubocd/packages/okit
+    tag: 0.1.0-p01
+    interval: 30m
+  targetNamespace: okit
+  createNamespace: true
+  specPatchByModule:
+    kubeconfig:
+      values:
+        server:
+          dumpExchanges: 0
+        image:
+          pullPolicy: Always
+          #tag: 0.1.0-snapshot-ubuntu
+    apiserver:
+      values:
+        image:
+          pullPolicy: Always
+          #tag: 0.1.0-snapshot-ubuntu
+  parameters:
+    logger:
+      level: debug
+      mode: text

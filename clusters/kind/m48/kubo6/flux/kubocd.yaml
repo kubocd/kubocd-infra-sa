@@ -71,7 +71,7 @@ spec:
             internal: cluster-internal
           networkPolicies: true
           oidc:
-            issuerURL: https://kubauth.ingress.kubo5.mbp
+            issuerURL: https://kubauth.ingress.kubo6.mbp
 
     config:
       packageRedirects:
