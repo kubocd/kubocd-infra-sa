@@ -71,7 +71,7 @@ spec:
             internal: cluster-internal
           networkPolicies: true
           oidc:
-            issuerURL: https://kubauth.ingress.kubo6.mbp
+            issuerURL: https://kubauth.ingress.kubo5.mbp
 
     config:
       packageRedirects:
@@ -81,6 +81,7 @@ spec:
 #            name: certs-bundle
       clusterRoles:
         - storage
+        - oidc-server
       imageRedirects:
 #      - oldPrefix: quay.io/kubocd/kubocd
 #        newPrefix: host.docker.internal:5001/kubocd/kubocd
