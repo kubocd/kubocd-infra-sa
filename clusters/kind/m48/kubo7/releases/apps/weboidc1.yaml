@@ -1,0 +1,30 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: weboidc1
+  namespace: kubocd
+spec:
+  description: Sample oidc application
+  protected: false
+  package:
+    repository: quay.io/kubosa/packages/weboidc
+    tag: 0.1.0-p01
+    interval: 30m
+  targetNamespace: weboidc
+  createNamespace: true
+  parameters:
+    name: WEBOIDC-1
+    host: weboidc1
+    oidc:
+      clientId: weboidc1
+      clientSecret: my-secret
+  specPatchByModule:
+    main:
+      values:
+        image:
+          pullPolicy: Always
+        server:
+          dumpExchanges: 0
+
+

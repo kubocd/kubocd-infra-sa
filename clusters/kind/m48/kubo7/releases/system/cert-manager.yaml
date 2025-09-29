@@ -10,7 +10,7 @@ spec:
   description: The certificate manager
   protected: true
   package:
-    repository: quay.io/kubocd/packages/cert-manager
+    repository: quay.io/kubosa/packages/cert-manager
     tag: 1.17.1-p01
     interval: 30m
   parameters:

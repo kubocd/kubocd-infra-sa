@@ -9,7 +9,7 @@ metadata:
 spec:
   description: Second stage of kubocd installation
   package:
-    repository: quay.io/kubocd/packages/kubocd-webhooks
+    repository: quay.io/kubosa/packages/kubocd-webhooks
     tag: v0.2.2-p01
     interval: 30m
   parameters:
