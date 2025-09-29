@@ -63,4 +63,14 @@ spec:
         #hashedSecret: "$2a$12$bWPnINtuRRUB55qcVEV.vOOf7I88EHmKHiLzSAS9WKEtWQ.R29ce2"  # k8sSecret
         public: true
 
+      - name: minio1
+        hashedSecret: "$2a$12$9vdc.xb3Zf4ts/C2pSvIOuGmFiv0EStBJWslaaycavblaIjYZ9Mia" # // hash of my-secret
+        redirectURIs:
+          - "https://minio-console-minio1.ingress.kubo5.mbp/oauth_callback"
+        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        responseTypes: ["id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token"]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access", "address", "phone"]
+        displayName: Minio (1)
+        description: S3 Server
+        entryURL: "https://minio-console-minio1.ingress.kubo5.mbp"
 
