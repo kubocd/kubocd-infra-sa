@@ -10,7 +10,7 @@ spec:
   description: The Ingress controller
   protected: true
   package:
-    repository: quay.io/kubocd/packages/ingress-nginx
+    repository: quay.io/kubosa/packages/ingress-nginx
     tag: 4.12.1-p01
     interval: 30m
   targetNamespace: ingress-nginx

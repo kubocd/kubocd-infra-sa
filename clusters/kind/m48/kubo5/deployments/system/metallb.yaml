@@ -10,7 +10,7 @@ spec:
   description: The load balancer
   protected: true
   package:
-    repository: quay.io/kubocd/packages/metallb
+    repository: quay.io/kubosa/packages/metallb
     tag: 0.14.9-p01
     interval: 30m
   targetNamespace: metallb

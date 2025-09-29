@@ -10,7 +10,7 @@ spec:
   protected: true
   description: An LDAP server
   package:
-    repository: quay.io/kubocd/packages/openldap
+    repository: quay.io/kubosa/packages/openldap
     tag: 4.3.3-p01
     interval: 30m
   targetNamespace: openldap
