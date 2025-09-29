@@ -30,17 +30,17 @@ spec:
 
     groupBindings:
       - user: admin
-        group: cluster-admin
+        group: cluster-admins
       - user: admin
-        group: kubauth-admin
+        group: kubauth-admins
 
       - user: sa
-        group: minio-admin
+        group: minio-admins
       - user: sa
-        group: kubauth-admin
+        group: kubauth-admins
 
     groups:
-      - name: minio-admin
+      - name: minio-admins
         claims:
           policy: consoleAdmin
         comment: Minio admin group
