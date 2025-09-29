@@ -1,0 +1,66 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: kubauth-oidc-clients
+  namespace: kubocd
+spec:
+  package:
+    repository: quay.io/kubosa/packages/kubauth-grant
+    tag: 0.1.1-p01
+  parameters:
+    oidcClients:
+      - name: weboidc1
+        hashedSecret: "$2a$12$9vdc.xb3Zf4ts/C2pSvIOuGmFiv0EStBJWslaaycavblaIjYZ9Mia" # // hash of my-secret
+        redirectURIs:
+          - "https://weboidc1.ingress.kubo5.mbp/wo_callback"
+        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
+        displayName: Weboidc (1)
+        description: A test OIDC client application
+        entryURL: https://weboidc1.ingress.kubo5.mbp
+      - name: weboidc2
+        hashedSecret: "$2a$12$9vdc.xb3Zf4ts/C2pSvIOuGmFiv0EStBJWslaaycavblaIjYZ9Mia" # // hash of my-secret
+        redirectURIs:
+          - "https://weboidc2.ingress.kubo5.mbp/wo_callback"
+        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
+        displayName: Weboidc (2)
+        description: A test OIDC client application
+        entryURL: https://weboidc2.ingress.kubo5.mbp
+
+      - name: public
+        redirectURIs:
+          - "http://localhost:9001/wo_callback"
+          - "http://127.0.0.1:9921/callback"
+          - "http://localhost:8000"
+          - "http://localhost:18000"
+        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access", "xxx" ]
+        description: A test OIDC public client
+        forceOpenIdScope: false
+        accessTokenLifespan: 5m
+        refreshTokenLifespan: 30m
+        idTokenLifespan: 5m
+        public: true
+
+      - name: k8s
+        redirectURIs:
+          - "http://127.0.0.1:9921/callback"
+          - "http://localhost:8000"
+          - "http://localhost:18000"
+        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
+        description: For kubernetes cluster access
+        forceOpenIdScope: true
+        accessTokenLifespan: 1m
+        refreshTokenLifespan: 30m
+        idTokenLifespan: 1m
+        #hashedSecret: "$2a$12$bWPnINtuRRUB55qcVEV.vOOf7I88EHmKHiLzSAS9WKEtWQ.R29ce2"  # k8sSecret
+        public: true
+
+
