@@ -27,11 +27,6 @@ spec:
         commonNames:
           - "John DOE"
 
-      - login: jim
-        passwordHash: "$2a$12$DMQMTqcTXo.1CZ8EqDxOt.echfP9oAjEJNnYIsbuMHCGrN54jsYXS"  # john
-        commonNames:
-          - "Jim DOE"
-
 
     groupBindings:
       - user: admin
