@@ -8,7 +8,7 @@ spec:
   description: Sample oidc application
   protected: false
   package:
-    repository: quay.io/kubocd/packages/weboidc
+    repository: quay.io/kubosa/packages/weboidc
     tag: 0.1.0-p01
     interval: 30m
   targetNamespace: weboidc
