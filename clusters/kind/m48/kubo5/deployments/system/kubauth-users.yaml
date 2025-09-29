@@ -44,15 +44,17 @@ spec:
           policy: consoleAdmin
         comment: Minio admin group
 
-    clusterRoleBindings:
-      - name: oidc-cluster-admin
-        clusterRole: cluster-admin
-        groups:
-          - oidc-cluster-admins
-
-    roleBinding:
-      - name: ddd
-        role: kubauth-server-main-userdb-admin
-        namespace: kubauth-users
-        groups:
-          - oidc-kubauth-admin
+# For cluster bound with kubauth-kit
+#
+#    clusterRoleBindings:
+#      - name: oidc-cluster-admin
+#        clusterRole: cluster-admin
+#        groups:
+#          - oidc-cluster-admins
+#
+#    roleBindings:
+#      - name: oidc-kubauth-admin-userdb
+#        role: kubauth-server-main-userdb-admin
+#        namespace: kubauth-users
+#        groups:
+#          - oidc-kubauth-admin
