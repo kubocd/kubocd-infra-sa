@@ -31,6 +31,11 @@ cat >/tmp/kubo2-config.yaml <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 name: kubo2
+nodes:
+  - role: control-plane
+    extraMounts:
+      - hostPath: /Users/sa/dev/certs/ca-odp.crt
+        containerPath: /usr/local/share/ca-certificates/ca-odp.crt
 networking:
   apiServerAddress: "127.0.0.1"
   apiServerPort: 5448
@@ -39,6 +44,8 @@ EOF
 
 ```
 kind create cluster --config /tmp/kubo2-config.yaml
+
+docker exec -it kubo2-control-plane bash -c "update-ca-certificates"
 ```
 
 
@@ -51,13 +58,11 @@ docker update --restart=no kubo2-control-plane
 COMMIT LAST UPDATE ON kubocd-infra-sa
 
 ```
-export GITHUB_USER=SergeAlexandre
 export GITHUB_REPO=kubocd-infra-sa
 export GIT_BRANCH=main
 export GITHUB_TOKEN=
 
 flux bootstrap github \
---owner=${GITHUB_USER} \
 --repository=${GITHUB_REPO} \
 --branch=${GIT_BRANCH} \
 --interval 15s \

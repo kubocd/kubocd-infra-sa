@@ -11,7 +11,7 @@ spec:
     operation: copy
   url: oci://quay.io/kubocd/charts/kubocd-ctrl
   ref:
-    semver: "= v0.2.1"
+    semver: "= v0.2.2"
 
 
 ---
@@ -56,6 +56,7 @@ spec:
           cluster:
             name: kubo2
             domain: kubo2.mbp
+            apiServerURL: https://127.0.0.1:5448
           ingress:
             className: nginx
             domain: ingress.kubo2.mbp
@@ -68,6 +69,8 @@ spec:
           certificateIssuer:
             public: cluster-odp
             internal: cluster-internal
+          networkPolicies: true
+
     config:
       packageRedirects:
 #        - oldPrefix: quay.io/kubocd/packages

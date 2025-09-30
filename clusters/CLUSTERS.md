@@ -17,8 +17,8 @@ kubocd v0.2.1
 
 # kubo3:
 
-A naked cluster, with fluxCD. to test kubocd / base apps evolutions
-kubocd v0.2.2-snapshot
+To work on kubauth.
+Auto bootstrap with base system
 
 # kubo4
 
@@ -29,22 +29,12 @@ A cluster aimed to support the demo.
 
 # kubo5
 
-A cluster aimed to work on OIDC 
-- kubocd v0.2.2
-- Auto bootstrap
-- Only base system installed + openldap
-
-- Skas installed manually
+Auto bootstrap cluster to test kubauth (no kit)
 
 # kubo6
 
-Test cluster for auto bootstrap with oidc (kubauth+okit)
+Auto bootstrap cluster to test kubauth (only kit, no kubauth-server)
 
 # kubo7
 
-To validate okit-ac
-
-- kubocd v0.2.2
-- Auto bootstrap
-- Only base system installed
-
+Auto bootstrap cluster to test kubauth (kit and kubauth-server)
