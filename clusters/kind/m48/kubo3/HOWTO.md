@@ -74,13 +74,11 @@ docker update --restart=no kubo1-control-plane
 !! COMMIT cluster infra !! 
 
 ```
-export GITHUB_USER=SergeAlexandre
 export GITHUB_REPO=kubocd-infra-sa
-export GIT_BRANCH=v0.2.0
+export GIT_BRANCH=main
 export GITHUB_TOKEN=
 
 flux bootstrap github \
---owner=${GITHUB_USER} \
 --repository=${GITHUB_REPO} \
 --branch=${GIT_BRANCH} \
 --interval 15s \
