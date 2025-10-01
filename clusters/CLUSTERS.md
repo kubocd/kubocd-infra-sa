@@ -12,12 +12,11 @@ The cluster to work on kubocd:
 
 # kubo2:
 
-A cluster with system auto bootstrap as a demo sandbox
-kubocd v0.2.1
+A cluster with system auto bootstrap to support kubauth in dev mode (Running on host)
 
 # kubo3:
 
-To work on kubauth.
+To have a SKAS reference deployment
 Auto bootstrap with base system
 
 # kubo4

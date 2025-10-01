@@ -71,6 +71,7 @@ Remove auto-restart
 docker update --restart=no kubo1-control-plane
 ```
 
+!! COMMIT cluster infra !! 
 
 ```
 export GITHUB_USER=SergeAlexandre

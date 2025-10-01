@@ -9,8 +9,9 @@ metadata:
 spec:
   description: A first sample release of podinfo
   package:
-    repository: quay.io/kubocd/packages/podinfo
+    repository: quay.io/kubosa/packages/podinfo
     tag: 6.7.1-p01
     interval: 30m
   parameters:
     tls: true
+    host: podinfo
