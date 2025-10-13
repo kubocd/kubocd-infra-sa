@@ -70,10 +70,11 @@ spec:
             public: cluster-odp
             internal: cluster-internal
           networkPolicies: true
-
+          oidc:
+            issuerURL: https://kubauth.ingress.kubo2.mbp
       - name: ldap
         namespace: contexts
-        description: Ldap configuration,
+        description: Ldap configuration
         context:
           ldap:
             host: openldap-main.openldap.svc
