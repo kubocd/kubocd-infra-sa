@@ -73,6 +73,32 @@ spec:
           oidc:
             issuerURL: https://kubauth.ingress.kubo7.mbp
 
+      - name: ldap
+        namespace: contexts
+        description: Ldap configuration
+        context:
+          ldap:
+            host: openldap-main.openldap.svc
+            insecureNoSSL: false
+            rootCaSecret: certs-bundle
+            bindDN: cn=admin,dc=odp,dc=com
+            bindPW: admin123
+            groupSearch:
+              baseDN: ou=Groups,dc=odp,dc=com
+              filter: (objectClass=posixgroup)
+              linkGroupAttr: memberUid
+              linkUserAttr: uid
+              nameAttr: cn
+            timeoutSec: 10
+            userSearch:
+              baseDN: ou=Users,dc=odp,dc=com
+              cnAttr: cn
+              emailAttr: mail
+              filter: (objectClass=inetOrgPerson)
+              loginAttr: uid
+              numericalIdAttr: uidNumber
+
+
     config:
       packageRedirects:
 #        - oldPrefix: quay.io/kubocd/packages
@@ -86,6 +112,8 @@ spec:
 #        newPrefix: host.docker.internal:5001/kubocd/kubocd
       defaultContexts:
         - name: cluster
+          namespace: contexts
+        - name: ldap
           namespace: contexts
     controller:
       enabled: true
