@@ -68,7 +68,7 @@ done.
 Remove auto-restart
 
 ```
-docker update --restart=no kubo1-control-plane
+docker update --restart=no kubo3-control-plane
 ```
 
 !! COMMIT cluster infra !! 

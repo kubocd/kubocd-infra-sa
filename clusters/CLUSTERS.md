@@ -21,7 +21,7 @@ Auto bootstrap with base system
 
 # kubo4
 
-A cluster aimed to support the demo.
+A cluster aimed to support the kubocd demo.
 - kubocd v0.2.1
 - Auto bootstrap
 - Only base system installed
