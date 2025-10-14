@@ -1,0 +1,41 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: kubauth-server
+  namespace: kubocd
+spec:
+  description: Oidc server
+  protected: false
+  package:
+    repository: quay.io/kubosa/packages/kubauth-server
+    tag: 0.1.2-p01
+    interval: 30m
+  targetNamespace: kubauth
+  createNamespace: true
+  specPatchByModule:
+    main:
+      values:
+        oidc:
+          dumpExchanges: 0
+          image:
+            pullPolicy: Always
+            #tag: 0.1.0-snapshot-ubuntu
+  parameters:
+    oidc:
+      logger:
+        level: debug
+      allowPasswordGrant: true
+
+    audit:
+      enabled: true
+
+    merger:
+      enabled: true
+
+    ucrd:
+      enabled: true
+
+    ldap:
+      enabled: true
+
