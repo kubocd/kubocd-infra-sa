@@ -79,12 +79,12 @@ EOF
 ```
 kind-fip create cluster --config /tmp/kubo8-config.yaml
 
-docker exec -it kubo8-control-plane bash -c "update-ca-certificates"
-docker exec -it kubo8-control-plane2 bash -c "update-ca-certificates"
-docker exec -it kubo8-control-plane3 bash -c "update-ca-certificates"
-docker exec -it kubo8-worker bash -c "update-ca-certificates"
-docker exec -it kubo8-worker2 bash -c "update-ca-certificates"
-docker exec -it kubo8-worker3 bash -c "update-ca-certificates"
+docker exec kubo8-control-plane bash -c "update-ca-certificates"
+docker exec kubo8-control-plane2 bash -c "update-ca-certificates"
+docker exec kubo8-control-plane3 bash -c "update-ca-certificates"
+docker exec kubo8-worker bash -c "update-ca-certificates"
+docker exec kubo8-worker2 bash -c "update-ca-certificates"
+docker exec kubo8-worker3 bash -c "update-ca-certificates"
 
 ```
 
