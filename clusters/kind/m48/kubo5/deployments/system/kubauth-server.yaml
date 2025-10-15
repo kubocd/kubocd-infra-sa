@@ -17,7 +17,7 @@ spec:
     main:
       values:
         oidc:
-          dumpExchanges: 6
+          dumpExchanges: 0
           image:
             pullPolicy: Always
             #tag: 0.1.0-snapshot-ubuntu

@@ -43,7 +43,7 @@ EOF
 ```
 
 ```
-kind create cluster --config /tmp/kubo5-config.yaml
+kind-fip create cluster --config /tmp/kubo5-config.yaml
 
 docker exec -it kubo5-control-plane bash -c "update-ca-certificates"
 ```
