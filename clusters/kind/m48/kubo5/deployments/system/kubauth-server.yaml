@@ -9,7 +9,7 @@ spec:
   protected: false
   package:
     repository: quay.io/kubosa/packages/kubauth-server
-    tag: 0.1.1-p01
+    tag: 0.1.2-p01
     interval: 30m
   targetNamespace: kubauth
   createNamespace: true
