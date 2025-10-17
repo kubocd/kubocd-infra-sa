@@ -57,6 +57,7 @@ spec:
             name: kubo8
             domain: kubo8.mbp
             apiServerURL: https://127.0.0.1:5454
+            hostNetworkCidr: 172.18.0.0/16
           ingress:
             className: nginx
             domain: ingress.kubo8.mbp
