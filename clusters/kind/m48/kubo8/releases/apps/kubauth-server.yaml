@@ -37,5 +37,5 @@ spec:
       enabled: true
 
     ldap:
-      enabled: false
+      enabled: true
 
