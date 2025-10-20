@@ -13,26 +13,24 @@ spec:
       - name: weboidc1
         hashedSecret: "$2a$12$9vdc.xb3Zf4ts/C2pSvIOuGmFiv0EStBJWslaaycavblaIjYZ9Mia" # // hash of my-secret
         redirectURIs:
-          - "https://weboidc1.ingress.kubo5.mbp/wo_callback"
-          - "https://weboidc1.ingress.kubo6.mbp/wo_callback"
+          - "https://weboidc1.{{ .Context.ingress.domain }}/wo_callback"
         grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
         responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
         scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
         displayName: Weboidc (1)
         description: A first test OIDC client application
-        entryURL: https://weboidc1.ingress.kubo5.mbp
+        entryURL: "https://weboidc1.{{ .Context.ingress.domain }}"
 
       - name: weboidc2
         hashedSecret: "$2a$12$9vdc.xb3Zf4ts/C2pSvIOuGmFiv0EStBJWslaaycavblaIjYZ9Mia" # // hash of my-secret
         redirectURIs:
-          - "https://weboidc2.ingress.kubo5.mbp/wo_callback"
-          - "https://weboidc2.ingress.kubo6.mbp/wo_callback"
+          - "https://weboidc2.{{ .Context.ingress.domain }}/wo_callback"
         grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
         responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
         scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
         displayName: Weboidc (2)
         description: A second test OIDC client application
-        entryURL: https://weboidc2.ingress.kubo5.mbp
+        entryURL: "https://weboidc2.{{ .Context.ingress.domain }}"
 
       - name: public
         redirectURIs:
@@ -69,12 +67,11 @@ spec:
       - name: minio1
         hashedSecret: "$2a$12$9vdc.xb3Zf4ts/C2pSvIOuGmFiv0EStBJWslaaycavblaIjYZ9Mia" # // hash of my-secret
         redirectURIs:
-          - "https://minio-console-minio1.ingress.kubo5.mbp/oauth_callback"
-          - "https://minio-console-minio1.ingress.kubo6.mbp/oauth_callback"
+          - "https://minio-console-minio1.{{ .Context.ingress.domain }}/oauth_callback"
         grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
         responseTypes: ["id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token"]
         scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access", "address", "phone"]
         displayName: Minio (1)
         description: S3 Server
-        entryURL: "https://minio-console-minio1.ingress.kubo5.mbp"
+        entryURL: "https://minio-console-minio1.{{ .Context.ingress.domain }}"
 

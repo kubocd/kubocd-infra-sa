@@ -28,7 +28,7 @@ A cluster aimed to support the kubocd demo.
 
 # kubo5
 
-Auto bootstrap cluster to test kubauth (no kit)
+Auto bootstrap cluster to work on kubauth
 
 # kubo6
 
