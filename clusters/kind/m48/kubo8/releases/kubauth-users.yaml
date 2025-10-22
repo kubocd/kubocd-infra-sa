@@ -7,25 +7,22 @@ metadata:
 spec:
   package:
     repository: quay.io/kubosa/packages/kubauth-grant
-    tag: 0.1.1-p01
+    tag: 0.1.2-p01
   parameters:
     users:
       - login: sa
         passwordHash: "$2a$12$iw.ywr.87sGXAkK1HSIU6OIBTyVs4/at1T7I1ueLPPt9CPxOpkmbW"  # as
-        commonNames:
-          - Serge ALEXANDRE
+        name: Serge ALEXANDRE
         emails:
           - sa@mycompany.com
         claims:
           company: kubotal
       - login: admin
         passwordHash: "$2a$12$0.GDdlFBEGEuDI5OKayVgOfdyiHnB4YPoFmyVmB2uHOWh36tr.d8y"  # admin
-        commonNames:
-          - "Kubauth & cluster administrator"
+        name: "Kubauth & cluster administrator"
       - login: john
         passwordHash: "$2a$12$DMQMTqcTXo.1CZ8EqDxOt.echfP9oAjEJNnYIsbuMHCGrN54jsYXS"  # john
-        commonNames:
-          - "John DOE"
+        name: "John DOE"
 
 
     groupBindings:
@@ -39,13 +36,18 @@ spec:
       - user: sa
         group: kubauth-admins
 
+      - user: sergea
+        group: devs
+      - user: sergea
+        group: minio-admins
+
     groups:
       - name: minio-admins
         claims:
           policy: consoleAdmin
         comment: Minio admin group
 
-# For cluster bound with kubauth-kit
+    # For cluster bound with kubauth-kit
 
     clusterRoleBindings:
       - name: oidc-cluster-admin

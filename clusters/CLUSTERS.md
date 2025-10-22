@@ -37,3 +37,7 @@ Auto bootstrap cluster to test kubauth (only kit, no kubauth-server)
 # kubo7
 
 Auto bootstrap cluster to test kubauth (kit and kubauth-server)
+
+# kubo8 
+
+Multi node cluster. Work on kubauth

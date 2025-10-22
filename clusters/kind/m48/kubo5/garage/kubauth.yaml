@@ -35,6 +35,16 @@ spec:
 
     ucrd:
       enabled: true
+      credentialAuthority: true
+      groupAuthority: true
+      groupPattern: "%s"
+      claimAuthority: true
+      claimPattern: "%s"
+      nameAuthority: true
+      emailAuthority: true
+      critical: true
+      uidOffset: 10001
+
 
     ldap:
       enabled: true
