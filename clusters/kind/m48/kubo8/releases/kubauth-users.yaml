@@ -30,6 +30,8 @@ spec:
         group: cluster-admins
       - user: admin
         group: kubauth-admins
+      - user: admin
+        group: minio-admins
 
       - user: sa
         group: minio-admins
