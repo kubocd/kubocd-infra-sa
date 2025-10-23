@@ -32,7 +32,7 @@ Auto bootstrap cluster to work on kubauth
 
 # kubo6
 
-Auto bootstrap cluster to test kubauth (only kit, no kubauth-server)
+Auto bootstrap cluster to be used for kubauth-doc
 
 # kubo7
 

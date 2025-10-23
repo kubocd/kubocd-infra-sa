@@ -57,7 +57,7 @@ spec:
 
     roleBindings:
       - name: oidc-kubauth-admin-ucrd
-        role: kubauth-server-main-ucrd-admin
+        role: kubauth-main-ucrd-admin
         namespace: kubauth-users
         groups:
           - oidc-kubauth-admin
