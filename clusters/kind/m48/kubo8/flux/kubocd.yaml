@@ -80,7 +80,7 @@ spec:
         context:
           ldap:
             host: openldap-main.openldap.svc
-            insecureNoSSL: true
+            insecureNoSSL: false
             rootCaSecret: certs-bundle
             bindDN: cn=admin,dc=mycompany,dc=com
             bindPW: admin123
