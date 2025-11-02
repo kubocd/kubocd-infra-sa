@@ -16,7 +16,7 @@ spec:
   targetNamespace: openldap
   createNamespace: true
   parameters:
-    ldapDomain: "odp.com"
+    ldapDomain: "mycompany.com"
     admin:
       password: admin123
     config:
