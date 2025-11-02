@@ -107,6 +107,7 @@ docker update --restart=no kubo8-control-plane3
 docker update --restart=no kubo8-worker
 docker update --restart=no kubo8-worker2
 docker update --restart=no kubo8-worker3
+docker update --restart=no kubo8-external-load-balancer
 
 ```
 
