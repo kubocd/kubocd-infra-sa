@@ -151,3 +151,10 @@ patches:
       kind: Deployment
       name: "(kustomize-controller|helm-controller)"
 ```
+
+# Client deployment
+
+```
+o8
+kc init https://kubeconfig.ingress.kubo8.mbp/kubeconfig
+```

@@ -25,89 +25,61 @@ spec:
       # To generate passwords: 'slappasswd -s myPassword' on an ldap node
       00-root.ldif: |-
         # Root creation
-        dn: dc=odp,dc=com
+        dn: dc=mycompany,dc=com
         objectClass: dcObject
         objectClass: organization
-        o: OpenDataPlatform
-
+        o: MyCompany
       01-base-ou.ldif: |-
-        dn: ou=Users,dc=odp,dc=com
+        dn: ou=Users,dc=mycompany,dc=com
         objectClass: organizationalUnit
         ou: Users
-        
-        dn: ou=Groups,dc=odp,dc=com
+    
+        dn: ou=Groups,dc=mycompany,dc=com
         objectClass: organizationalUnit
         ou: Groups
-
       03-first-groups.ldif: |-
-        dn: cn=devs,ou=Groups,dc=odp,dc=com
+        dn: cn=staff,ou=Groups,dc=mycompany,dc=com
         objectclass: posixGroup
         objectclass: top
         gidnumber: 500
-        cn: devs
-        memberUid: alaint
-        memberUid: alext
-        
-        dn: cn=ops,ou=Groups,dc=odp,dc=com
+        cn: staff
+        memberUid: alice
+        memberUid: fred
+        memberUid: bob
+    
+        dn: cn=managers,ou=Groups,dc=mycompany,dc=com
         objectclass: posixGroup
         objectclass: top
         gidnumber: 501
-        cn: ops
-        memberUid: sergea
-        memberUid: moncefl
-
+        cn: managers
+        memberUid: alice
+        memberUid: fred
       05-first-users.ldif: |-
-        dn: uid=sergea,ou=Users,dc=odp,dc=com
-        cn: Serge ALEXANDRE
+        dn: uid=alice,ou=Users,dc=mycompany,dc=com
+        cn: Alice SMITH
         objectclass: inetOrgPerson
         objectclass: top
-        sn: ALEXANDRE
-        uid: sergea
-        mail: salexandre@odp.com
-        userpassword: {SSHA}RJB2fZdnwqAV6tcUbcLm+Awzt2CEinBT
-        
-        dn: uid=moncefl,ou=Users,dc=odp,dc=com
-        cn: Moncef LAHOUAR
+        sn: SMITH
+        uid: alice
+        mail: alice@mycompany.com
+        userpassword: alice123
+    
+        dn: uid=bob,ou=Users,dc=mycompany,dc=com
+        cn: Bob MORANE
         objectclass: inetOrgPerson
         objectclass: top
-        sn: LAHOUAR
-        uid: moncefl
-        mail: moncefl@odp.com
-        userpassword: moncefl123
-        
-        dn: uid=idiri,ou=Users,dc=odp,dc=com
-        cn: Idir IZITOUNENE
+        sn: MORANE
+        uid: bob
+        mail: bob@mycompany.com
+        userpassword: bob123
+    
+        dn: uid=fred,ou=Users,dc=mycompany,dc=com
+        cn: Fred ASTER
         objectclass: inetOrgPerson
         objectclass: top
-        sn: IZITOUNENE
-        uid: idiri
-        mail: idiri@odp.com
-        userpassword: idiri123
-        
-        dn: uid=julest,ou=Users,dc=odp,dc=com
-        cn: Jules TESTEUR
-        objectclass: inetOrgPerson
-        objectclass: top
-        sn: TESTEUR
-        uid: julest
-        mail: julest@odp.com
-        userpassword: julest123
-        
-        dn: uid=alaint,ou=Users,dc=odp,dc=com
-        cn: Alain TERIEUR
-        objectclass: inetOrgPerson
-        objectclass: top
-        sn: TERIEUR
-        uid: alaint
-        mail: alaint@odp.com
-        userpassword: alaint123
-        
-        dn: uid=alext,ou=Users,dc=odp,dc=com
-        cn: Alex TERIEUR
-        objectclass: inetOrgPerson
-        objectclass: top
-        sn: TERIEUR
-        uid: alext
-        mail: alext@odp.com
-        userpassword: alext123
-  
+        sn: ASTER
+        uid: fred
+        mail: fred@mycompany.com
+        userpassword: fred123
+    
+    
