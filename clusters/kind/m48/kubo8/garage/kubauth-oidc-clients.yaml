@@ -14,7 +14,7 @@ spec:
         hashedSecret: "$2a$12$9vdc.xb3Zf4ts/C2pSvIOuGmFiv0EStBJWslaaycavblaIjYZ9Mia" # // hash of my-secret
         redirectURIs:
           - "https://weboidc1.{{ .Context.ingress.domain }}/wo_callback"
-        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        grantTypes: [ "refresh_token", "authorization_code" ]
         responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
         scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
         displayName: Weboidc (1)
@@ -25,7 +25,7 @@ spec:
         hashedSecret: "$2a$12$9vdc.xb3Zf4ts/C2pSvIOuGmFiv0EStBJWslaaycavblaIjYZ9Mia" # // hash of my-secret
         redirectURIs:
           - "https://weboidc2.{{ .Context.ingress.domain }}/wo_callback"
-        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        grantTypes: [ "refresh_token", "authorization_code" ]
         responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
         scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
         displayName: Weboidc (2)
@@ -38,9 +38,9 @@ spec:
           - "http://127.0.0.1:9921/callback"
           - "http://localhost:8000"
           - "http://localhost:18000"
-        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        grantTypes: [ "refresh_token", "authorization_code", "password" ]
         responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
-        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access", "xxx" ]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
         description: A test OIDC public client
         forceOpenIdScope: false
         accessTokenLifespan: 5m
@@ -53,7 +53,7 @@ spec:
           - "http://127.0.0.1:9921/callback"
           - "http://localhost:8000"
           - "http://localhost:18000"
-        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        grantTypes: [ "refresh_token", "authorization_code", "password" ]
         responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
         scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
         description: For kubernetes cluster access
@@ -68,7 +68,7 @@ spec:
         hashedSecret: "$2a$12$9vdc.xb3Zf4ts/C2pSvIOuGmFiv0EStBJWslaaycavblaIjYZ9Mia" # // hash of my-secret
         redirectURIs:
           - "https://minio-console-minio1.{{ .Context.ingress.domain }}/oauth_callback"
-        grantTypes: [ "implicit", "refresh_token", "authorization_code", "password", "client_credentials" ]
+        grantTypes: [ "refresh_token", "authorization_code" ]
         responseTypes: ["id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token"]
         scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access", "address", "phone"]
         displayName: Minio (1)
