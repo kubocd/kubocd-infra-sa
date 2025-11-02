@@ -7,7 +7,7 @@ metadata:
   name: openldap
   namespace: default
 spec:
-  protected: true
+  protected: false
   description: An LDAP server
   package:
     repository: quay.io/kubosa/packages/openldap

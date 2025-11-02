@@ -80,19 +80,19 @@ spec:
         context:
           ldap:
             host: openldap-main.openldap.svc
-            insecureNoSSL: false
+            insecureNoSSL: true
             rootCaSecret: certs-bundle
-            bindDN: cn=admin,dc=odp,dc=com
+            bindDN: cn=admin,dc=mycompany,dc=com
             bindPW: admin123
             groupSearch:
-              baseDN: ou=Groups,dc=odp,dc=com
+              baseDN: ou=Groups,dc=mycompany,dc=com
               filter: (objectClass=posixgroup)
               linkGroupAttr: memberUid
               linkUserAttr: uid
               nameAttr: cn
             timeoutSec: 10
             userSearch:
-              baseDN: ou=Users,dc=odp,dc=com
+              baseDN: ou=Users,dc=mycompany,dc=com
               cnAttr: cn
               emailAttr: mail
               filter: (objectClass=inetOrgPerson)
