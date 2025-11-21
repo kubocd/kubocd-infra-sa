@@ -10,8 +10,13 @@ spec:
     tag: 0.1.2-p01
   parameters:
     users:
+      - login: admin
+        passwordHash: "$2a$12$0.GDdlFBEGEuDI5OKayVgOfdyiHnB4YPoFmyVmB2uHOWh36tr.d8y"  # admin
+        name: "Kubauth & cluster administrator"
+
       - login: jim
         passwordHash: "$2a$12$yJEo9EoYn/ylGS4PCamfNe8PReYH9IPumsw7rMTDi3glZjuA7dXMm"  # jim123
+
       - login: john
         passwordHash: "$2a$12$YjalsuGc6uuWtQqVuU/O.eW9L6QGU/vHk2wpvle4dsS7hC2Ic1F.q"  # john123
         name: John DOE
@@ -19,10 +24,6 @@ spec:
           office: 208G
         emails:
           - johnd@mycompany.com
-
-      - login: admin
-        passwordHash: "$2a$12$0.GDdlFBEGEuDI5OKayVgOfdyiHnB4YPoFmyVmB2uHOWh36tr.d8y"  # admin
-        name: "Kubauth & cluster administrator"
 
       - login: alice
         passwordHash: "$2a$12$.WUyue3xr.nKuH8Tu0q.T.WF.PKHLZ92g9ewnLoB.27CuMQIdvuza" # smith123
@@ -38,12 +39,8 @@ spec:
         group: cluster-admins
       - user: admin
         group: data-ops
-
-      - user: bob
-        group: ops
-#      - user: bob
-#        group: data-ops
-
+      - user: john
+        group: kubauth-admins
 
     groups:
       - name: data-ops
@@ -58,7 +55,6 @@ spec:
         clusterRole: cluster-admin
         groups:
           - oidc-cluster-admins
-          - oidc-ops
 
     # Control access to kubauth local users (ucrd)
     roleBindings:
@@ -67,5 +63,4 @@ spec:
         namespace: kubauth-users
         groups:
           - oidc-kubauth-admins
-          - oidc-ops
           - oidc-managers

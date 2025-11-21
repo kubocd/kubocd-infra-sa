@@ -19,7 +19,6 @@ address=/minio1.kubo8.mbp/172.18.110.9
 address=/last.pool.kubo8.mbp/172.18.110.9 
 EOF
 
-
 sudo brew services restart dnsmasq
 
 sudo killall -HUP mDNSResponder

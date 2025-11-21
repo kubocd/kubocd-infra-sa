@@ -28,7 +28,7 @@ spec:
       enabled: true
       host: "{{ .Release.metadata.name }}.{{ .Context.cluster.domain }}"
     oidc:
-      enabled: true
+      enabled: false
       clientId: minio1
       clientSecret: "my-secret"
   specPatchByModule:
