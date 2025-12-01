@@ -11,3 +11,4 @@ patches:
     target:
       kind: Deployment
       name: "(kustomize-controller|helm-controller)"
+
