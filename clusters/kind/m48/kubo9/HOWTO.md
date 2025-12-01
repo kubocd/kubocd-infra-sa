@@ -1,30 +1,27 @@
 
-# kubo8 cluster
+# kubo9 cluster
 
 ## Network setting
 
 ```
-cat >$(brew --prefix)/etc/dnsmasq.d/kubo8 <<EOF
-address=/lb.kubo8.mbp/172.18.110.0
-address=/m0.kubo8.mbp/172.18.110.1 
-address=/m1.kubo8.mbp/172.18.110.2 
-address=/m2.kubo8.mbp/172.18.110.3 
-address=/w0.kubo8.mbp/172.18.110.4 
-address=/w1.kubo8.mbp/172.18.110.5 
-address=/w2.kubo8.mbp/172.18.110.6 
-address=/first.pool.kubo8.mbp/172.18.110.7 
-address=/.ingress.kubo8.mbp/172.18.110.7
-address=/ldap.kubo8.mbp/172.18.110.8
-address=/minio1.kubo8.mbp/172.18.110.9
-address=/minio.kubo8.mbp/172.18.110.9
-address=/last.pool.kubo8.mbp/172.18.110.9 
+cat >$(brew --prefix)/etc/dnsmasq.d/kubo9 <<EOF
+address=/lb.kubo9.mbp/172.18.111.0
+address=/m0.kubo9.mbp/172.18.111.1 
+address=/w0.kubo9.mbp/172.18.111.2 
+address=/w1.kubo9.mbp/172.18.111.3 
+address=/w2.kubo9.mbp/172.18.111.4 
+address=/first.pool.kubo9.mbp/172.18.111.5 
+address=/.ingress.kubo9.mbp/172.18.111.5
+address=/ldap.kubo9.mbp/172.18.111.6
+address=/minio.kubo9.mbp/172.18.111.7
+address=/last.pool.kubo9.mbp/172.18.111.9 
 EOF
 
 sudo brew services restart dnsmasq
 
 sudo killall -HUP mDNSResponder
 
-ping xxxx.ingress.kubo8.mbp
+ping xxxx.ingress.kubo9.mbp
 ```
 
 
@@ -33,58 +30,44 @@ ping xxxx.ingress.kubo8.mbp
 WARNING: See use local registry if applicable
 
 ```
-cat >/tmp/kubo8-config.yaml <<EOF
+cat >/tmp/kubo9-config.yaml <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-name: kubo8
-loadBalancer:
-  dockerIP: lb.kubo8.mbp
+name: kubo9
 nodes:
   - role: control-plane
-    dockerIP: m0.kubo8.mbp
-    extraMounts:
-      - hostPath: /Users/sa/dev/certs/ca-odp.crt
-        containerPath: /usr/local/share/ca-certificates/ca-odp.crt
-  - role: control-plane
-    dockerIP: m1.kubo8.mbp
-    extraMounts:
-      - hostPath: /Users/sa/dev/certs/ca-odp.crt
-        containerPath: /usr/local/share/ca-certificates/ca-odp.crt
-  - role: control-plane
-    dockerIP: m2.kubo8.mbp
+    dockerIP: m0.kubo9.mbp
     extraMounts:
       - hostPath: /Users/sa/dev/certs/ca-odp.crt
         containerPath: /usr/local/share/ca-certificates/ca-odp.crt
   - role: worker
-    dockerIP: w0.kubo8.mbp
+    dockerIP: w0.kubo9.mbp
     extraMounts:
       - hostPath: /Users/sa/dev/certs/ca-odp.crt
         containerPath: /usr/local/share/ca-certificates/ca-odp.crt
   - role: worker
-    dockerIP: w1.kubo8.mbp
+    dockerIP: w1.kubo9.mbp
     extraMounts:
       - hostPath: /Users/sa/dev/certs/ca-odp.crt
         containerPath: /usr/local/share/ca-certificates/ca-odp.crt
   - role: worker
-    dockerIP: w2.kubo8.mbp
+    dockerIP: w2.kubo9.mbp
     extraMounts:
       - hostPath: /Users/sa/dev/certs/ca-odp.crt
         containerPath: /usr/local/share/ca-certificates/ca-odp.crt
 networking:
   apiServerAddress: "127.0.0.1"
-  apiServerPort: 5454
+  apiServerPort: 5455
 EOF
 ```
 
 ```
-kind-fip create cluster --config /tmp/kubo8-config.yaml
+kind-fip create cluster --config /tmp/kubo9-config.yaml
 
-docker exec kubo8-control-plane bash -c "update-ca-certificates"
-docker exec kubo8-control-plane2 bash -c "update-ca-certificates"
-docker exec kubo8-control-plane3 bash -c "update-ca-certificates"
-docker exec kubo8-worker bash -c "update-ca-certificates"
-docker exec kubo8-worker2 bash -c "update-ca-certificates"
-docker exec kubo8-worker3 bash -c "update-ca-certificates"
+docker exec kubo9-control-plane bash -c "update-ca-certificates"
+docker exec kubo9-worker bash -c "update-ca-certificates"
+docker exec kubo9-worker2 bash -c "update-ca-certificates"
+docker exec kubo9-worker3 bash -c "update-ca-certificates"
 
 ```
 
@@ -101,13 +84,10 @@ done.
 Remove auto-restart
 
 ```
-docker update --restart=no kubo8-control-plane
-docker update --restart=no kubo8-control-plane2
-docker update --restart=no kubo8-control-plane3
-docker update --restart=no kubo8-worker
-docker update --restart=no kubo8-worker2
-docker update --restart=no kubo8-worker3
-docker update --restart=no kubo8-external-load-balancer
+docker update --restart=no kubo9-control-plane
+docker update --restart=no kubo9-worker
+docker update --restart=no kubo9-worker2
+docker update --restart=no kubo9-worker3
 
 ```
 
@@ -126,7 +106,7 @@ flux bootstrap github \
 --interval 15s \
 --owner kubocd \
 --read-write-key \
---path=clusters/kind/m48/kubo8/flux
+--path=clusters/kind/m48/kubo9/flux
 
 ```
 
@@ -156,5 +136,5 @@ patches:
 
 ```
 o8
-kc init https://kubeconfig.ingress.kubo8.mbp/kubeconfig
+kc init https://kubeconfig.ingress.kubo9.mbp/kubeconfig
 ```

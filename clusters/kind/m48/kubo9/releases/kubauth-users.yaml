@@ -1,0 +1,66 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: kubauth-users
+  namespace: kubocd
+spec:
+  package:
+    repository: quay.io/kubosa/packages/kubauth-grant
+    tag: 0.1.2-p01
+  parameters:
+    users:
+      - login: admin
+        passwordHash: "$2a$12$0.GDdlFBEGEuDI5OKayVgOfdyiHnB4YPoFmyVmB2uHOWh36tr.d8y"  # admin
+        name: "Kubauth & cluster administrator"
+
+      - login: jim
+        passwordHash: "$2a$12$yJEo9EoYn/ylGS4PCamfNe8PReYH9IPumsw7rMTDi3glZjuA7dXMm"  # jim123
+
+      - login: john
+        passwordHash: "$2a$12$YjalsuGc6uuWtQqVuU/O.eW9L6QGU/vHk2wpvle4dsS7hC2Ic1F.q"  # john123
+        name: John DOE
+        claims:
+          office: 208G
+        emails:
+          - johnd@mycompany.com
+
+      - login: alice
+        passwordHash: "$2a$12$.WUyue3xr.nKuH8Tu0q.T.WF.PKHLZ92g9ewnLoB.27CuMQIdvuza" # smith123
+        name: Alice SMITH-WESSON
+        claims:
+          office: 312R
+        emails:
+          - alice@mycompany.com
+          - alice.smith@mycompany.com
+
+    groupBindings:
+      - user: admin
+        group: cluster-admins
+      - user: admin
+        group: data-ops
+      - user: john
+        group: kubauth-admins
+
+    groups:
+      - name: data-ops
+        claims:
+          policy: consoleAdmin
+        comment: Data ops (Minio console access)
+
+
+    # Control access to full cluster admin
+    clusterRoleBindings:
+      - name: oidc-cluster-admin
+        clusterRole: cluster-admin
+        groups:
+          - oidc-cluster-admins
+
+    # Control access to kubauth local users (ucrd)
+    roleBindings:
+      - name: oidc-kubauth-admin-ucrd
+        role: kubauth-main-ucrd-admin
+        namespace: kubauth-users
+        groups:
+          - oidc-kubauth-admins
+          - oidc-managers

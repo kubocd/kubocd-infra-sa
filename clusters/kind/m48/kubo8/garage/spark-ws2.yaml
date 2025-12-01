@@ -1,0 +1,24 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: spark-ws2
+  namespace: kubocd
+spec:
+  description: A spark workspace
+  protected: false
+  package:
+    repository: quay.io/kubosa/packages/spark-workspace
+    tag: 0.1.0-p01
+    interval: 30m
+  targetNamespace: kubocd
+  createNamespace: false
+  parameters:
+    namespace: spark-ws2
+    workflow:
+      guiOidcGroups:
+        - aaa
+        - bbb
+    s3access:
+      accessKey: AxkXVIfVvacucwT2TK8r
+      secretKey: c6LWjhNIl17coXq7NG0qMJAD3uWU02lOmkeX2VdO

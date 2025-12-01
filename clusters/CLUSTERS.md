@@ -40,4 +40,8 @@ Auto bootstrap cluster to test kubauth (kit and kubauth-server)
 
 # kubo8 
 
-Multi node cluster. Work on kubauth
+Multi node (3 + 3) cluster. Work on kubauth
+
+# kubo9
+
+Multi worker nodes cluster (1 + 3). Work on scheduling

@@ -1,0 +1,90 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: kubauth-oidc-clients
+  namespace: kubocd
+spec:
+  package:
+    repository: quay.io/kubosa/packages/kubauth-grant
+    tag: 0.1.2-p01
+  parameters:
+    oidcClients:
+      - name: weboidc1
+        hashedSecret: "$2a$12$9JAkOGx3g9Vm/su4ls2raOvM6FMr2TwuJ/jbxLcmwVIID3mzhpTKC" # weboidc1Secret
+        redirectURIs:
+          - "https://weboidc1.{{ .Context.ingress.domain }}/wo_callback"
+        grantTypes: [ "refresh_token", "authorization_code" ]
+        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
+        displayName: Weboidc (1)
+        description: A first test OIDC client application
+        entryURL: "https://weboidc1.{{ .Context.ingress.domain }}"
+
+      - name: weboidc2
+        hashedSecret: "$2a$12$k7niriDcq8o9U05IJ3FP0.kG.gioRdGV4H6OSSYoTw6JoJW3.4UWi" # weboidc2Secret
+        redirectURIs:
+          - "https://weboidc2.{{ .Context.ingress.domain }}/wo_callback"
+        grantTypes: [ "refresh_token", "authorization_code" ]
+        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
+        displayName: Weboidc (2)
+        description: A second test OIDC client application
+        entryURL: "https://weboidc2.{{ .Context.ingress.domain }}"
+
+      - name: public
+        redirectURIs:
+          - "http://localhost:9001/wo_callback"
+          - "http://127.0.0.1:9921/callback"
+          - "http://127.0.0.1:9922/callback"
+          - "http://127.0.0.1:9923/callback"
+          - "http://localhost:8000"
+          - "http://localhost:18000"
+        grantTypes: [ "refresh_token", "authorization_code", "password" ]
+        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
+        description: A test OIDC public client
+        forceOpenIdScope: false
+        accessTokenLifespan: 5m
+        refreshTokenLifespan: 30m
+        idTokenLifespan: 5m
+        public: true
+
+      - name: k8s
+        redirectURIs:
+          - "http://127.0.0.1:9921/callback"
+          - "http://localhost:8000"
+          - "http://localhost:18000"
+        grantTypes: [ "refresh_token", "authorization_code", "password" ]
+        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
+        description: For kubernetes cluster access
+        forceOpenIdScope: true
+        accessTokenLifespan: 1m
+        refreshTokenLifespan: 30m
+        idTokenLifespan: 1m
+        #hashedSecret: "$2a$12$bWPnINtuRRUB55qcVEV.vOOf7I88EHmKHiLzSAS9WKEtWQ.R29ce2"  # k8sSecret
+        public: true
+
+      - name: minio
+        hashedSecret: "$2a$12$bj5mSFRq5KBWWA.07DW2sO8qEh0wmxyDegA5LJCe0CqMfNSifgQ0S" # minioSecret
+        redirectURIs:
+          - "https://minio-console-minio.{{ .Context.ingress.domain }}/oauth_callback"
+        grantTypes: [ "refresh_token", "authorization_code" ]
+        responseTypes: ["id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token"]
+        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access", "address", "phone"]
+        displayName: Minio
+        description: S3 Server
+        entryURL: "https://minio-console-minio.{{ .Context.ingress.domain }}"
+
+#      - name: harbor
+#        hashedSecret: "$2a$12$xd9nlvMhwAkA01x3trdNXue08VrpeoWfZ2S8QypePfpMPnaEZYlia" # // hash of harbor123
+#        redirectURIs:
+#          - "https://harbor.{{ .Context.ingress.domain }}/c/oidc/callback"
+#        grantTypes: [ "refresh_token", "authorization_code" ]
+#        responseTypes: ["id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token"]
+#        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access"]
+#        displayName: Harbor
+#        description: Harbor OCI repository
+#        entryURL: https://harbor.{{ .Context.ingress.domain }}/
+
