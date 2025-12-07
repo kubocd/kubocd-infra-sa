@@ -1,0 +1,37 @@
+
+
+apiVersion: v1alpha1
+name: argocd
+tag: 9.1.6-p01
+protected: false
+schema:
+  context:
+    properties:
+      ingress:
+        required: true
+        properties:
+          className: { type: string, default: "nginx"}
+          domain: { type: string, required: true }
+      certificateIssuer:
+        required: true
+        properties:
+          public: { type: string, required: true }
+modules:
+  - name: main
+    source:
+      git:
+        url: https://github.com/argoproj/argo-helm
+        tag: argo-cd-9.1.6
+        path: /charts/argo-cd
+    values: |
+      server:
+        ingress:
+          enabled: true
+          tls: true
+          annotations:
+            nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+            cert-manager.io/cluster-issuer: {{ .Context.certificateIssuer.public }}
+            nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+            nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          ingressClassName: {{ .Context.ingress.className }}      
+          hostname: argocd.{{.Context.ingress.domain}}
