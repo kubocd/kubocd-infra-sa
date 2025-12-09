@@ -14,6 +14,6 @@ patches:
   - patch: |
       - op: add
         path: /spec/template/spec/nodeSelector["node-role.kubernetes.io/control-plane"]
-        value: ""
+        value: "xx"
     target:
       kind: Deployment
