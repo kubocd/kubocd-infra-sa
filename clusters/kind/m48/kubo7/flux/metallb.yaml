@@ -41,7 +41,7 @@ spec:
       image:
         repository: quay.io/metallb/controller
     speaker:
-      toleration:
+      tolerations:
         - key: node-role.kubernetes.io
           operator: "Exists"
           effect: NoSchedule
