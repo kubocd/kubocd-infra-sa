@@ -18,7 +18,7 @@ spec:
     host: weboidc2
     oidc:
       clientId: weboidc2
-      clientSecret: my-secret
+      clientSecret: weboidc2Secret
   specPatchByModule:
     main:
       values:

@@ -1,0 +1,25 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: kubauth-apiserver
+  namespace: kubocd
+spec:
+  description: k8s api server oidc patcher
+  protected: false
+  package:
+    repository: quay.io/kubosa/packages/kubauth-apiserver
+    tag: 0.1.0-p01
+    interval: 30m
+  targetNamespace: kubauth
+  createNamespace: true
+  specPatchByModule:
+    apiserver:
+      values:
+        image:
+          pullPolicy: Always
+          #tag: 0.1.0-snapshot-ubuntu
+  parameters:
+    logger:
+      level: debug
+      mode: text

@@ -57,6 +57,7 @@ spec:
             name: kubo7
             domain: kubo7.mbp
             apiServerURL: https://127.0.0.1:5453
+            hostNetworkCidr: 172.18.0.0/16
           ingress:
             className: nginx
             domain: ingress.kubo7.mbp
@@ -81,23 +82,22 @@ spec:
             host: openldap-main.openldap.svc
             insecureNoSSL: false
             rootCaSecret: certs-bundle
-            bindDN: cn=admin,dc=odp,dc=com
+            bindDN: cn=admin,dc=mycompany,dc=com
             bindPW: admin123
             groupSearch:
-              baseDN: ou=Groups,dc=odp,dc=com
+              baseDN: ou=Groups,dc=mycompany,dc=com
               filter: (objectClass=posixgroup)
               linkGroupAttr: memberUid
               linkUserAttr: uid
               nameAttr: cn
             timeoutSec: 10
             userSearch:
-              baseDN: ou=Users,dc=odp,dc=com
+              baseDN: ou=Users,dc=mycompany,dc=com
               cnAttr: cn
               emailAttr: mail
               filter: (objectClass=inetOrgPerson)
               loginAttr: uid
               numericalIdAttr: uidNumber
-
 
     config:
       packageRedirects:

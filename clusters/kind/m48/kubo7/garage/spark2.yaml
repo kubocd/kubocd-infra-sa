@@ -1,0 +1,29 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: spark2
+  namespace: kubocd
+spec:
+  description: A spark workspace
+  protected: true
+  package:
+    repository: quay.io/kubosa/packages/spark-project-m
+    tag: 0.1.0-p01
+    interval: 1m
+  targetNamespace: kubocd
+  createNamespace: false
+  parameters:
+    projectId: spark2
+    workflow:
+      enabled: false
+      guiOidcGroups: []
+    s3access:
+      accessKey: WNDeMrTi7A0srVIrt7km
+      secretKey: kgNzt2Lzx6qLwBboN1BeQFpuZnZCmIlhzruyCO9f
+    sparkOperator:
+      enabled: true
+
+  roles:
+    - projectSpark2
+

@@ -36,7 +36,7 @@ Auto bootstrap cluster to be used for kubauth-doc
 
 # kubo7
 
-Auto bootstrap cluster to test kubauth (kit and kubauth-server)
+Multi nodes (1 + 1 + 3) cluster for pod placement test
 
 # kubo8 
 
