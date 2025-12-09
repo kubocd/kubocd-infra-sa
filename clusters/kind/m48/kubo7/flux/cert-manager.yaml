@@ -41,6 +41,27 @@ spec:
     image:
       repository: quay.io/jetstack/cert-manager-controller
     installCRDs: true
+    webhook:
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+      nodeSelector:
+        node-role.kubernetes.io/control-plane: ""
+    cainjector:
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+      nodeSelector:
+        node-role.kubernetes.io/control-plane: ""
+    startupapicheck:
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+      nodeSelector:
+        node-role.kubernetes.io/control-plane: ""
 
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
@@ -124,6 +145,12 @@ spec:
   releaseName: cert-manager-trust
   targetNamespace: cert-manager
   values:
+    tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+    nodeSelector:
+      node-role.kubernetes.io/control-plane: ""
     app:
       trust:
         namespace: cert-manager

@@ -43,7 +43,7 @@ spec:
     speaker:
       tolerations:
         - key: node-role.kubernetes.io
-          operator: "Exists"
+          operator: "Equal"
           effect: NoSchedule
           value: services
       frr:
