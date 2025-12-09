@@ -75,6 +75,12 @@ spec:
   releaseName: cert-manager-issuers
   targetNamespace: cert-manager
   values:
+    tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+    nodeSelector:
+      node-role.kubernetes.io/control-plane: ""
     bundle:
       name: certs-bundle
       target:

@@ -116,6 +116,7 @@ docker exec -it kubo7-control-plane bash -c "update-ca-certificates"
 docker exec kubo7-worker bash -c "update-ca-certificates"
 docker exec kubo7-worker2 bash -c "update-ca-certificates"
 docker exec kubo7-worker3 bash -c "update-ca-certificates"
+docker exec kubo7-worker4 bash -c "update-ca-certificates"
 ```
 
 Check `1 added`:
@@ -135,6 +136,7 @@ docker update --restart=no kubo7-control-plane
 docker update --restart=no kubo7-worker
 docker update --restart=no kubo7-worker2
 docker update --restart=no kubo7-worker3
+docker update --restart=no kubo7-worker4
 ```
 
 ---------------------------------------------------------------------------------------------------------
@@ -152,6 +154,7 @@ flux bootstrap github \
 --interval 15s \
 --owner kubocd \
 --read-write-key \
+--toleration-keys=node-role.kubernetes.io/control-plane \
 --path=clusters/kind/m48/kubo7/flux
 
 ```

@@ -32,9 +32,20 @@ spec:
   targetNamespace: metallb
   values:
     controller:
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+      nodeSelector:
+        node-role.kubernetes.io/control-plane: ""
       image:
         repository: quay.io/metallb/controller
     speaker:
+      toleration:
+        - key: node-role.kubernetes.io
+          operator: "Exists"
+          effect: NoSchedule
+          value: services
       frr:
         image:
           repository: quay.io/frrouting/frr
