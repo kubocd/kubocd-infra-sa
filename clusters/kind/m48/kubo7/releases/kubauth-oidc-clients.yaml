@@ -10,28 +10,6 @@ spec:
     tag: 0.1.2-p01
   parameters:
     oidcClients:
-      - name: weboidc1
-        hashedSecret: "$2a$12$9JAkOGx3g9Vm/su4ls2raOvM6FMr2TwuJ/jbxLcmwVIID3mzhpTKC" # weboidc1Secret
-        redirectURIs:
-          - "https://weboidc1.{{ .Context.ingress.domain }}/wo_callback"
-        grantTypes: [ "refresh_token", "authorization_code" ]
-        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
-        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
-        displayName: Weboidc (1)
-        description: A first test OIDC client application
-        entryURL: "https://weboidc1.{{ .Context.ingress.domain }}"
-
-      - name: weboidc2
-        hashedSecret: "$2a$12$k7niriDcq8o9U05IJ3FP0.kG.gioRdGV4H6OSSYoTw6JoJW3.4UWi" # weboidc2Secret
-        redirectURIs:
-          - "https://weboidc2.{{ .Context.ingress.domain }}/wo_callback"
-        grantTypes: [ "refresh_token", "authorization_code" ]
-        responseTypes: [ "id_token", "code", "token", "id_token token", "code id_token", "code token", "code id_token token" ]
-        scopes: [ "openid", "offline", "profile", "groups", "email", "offline_access" ]
-        displayName: Weboidc (2)
-        description: A second test OIDC client application
-        entryURL: "https://weboidc2.{{ .Context.ingress.domain }}"
-
       - name: public
         redirectURIs:
           - "http://localhost:9001/wo_callback"

@@ -6,10 +6,10 @@ metadata:
   namespace: kubocd
 spec:
   description: A spark workspace
-  protected: true
+  protected: false
   package:
-    repository: quay.io/kubosa/packages/spark-project-r
-    tag: 0.1.0-p01
+    repository: quay.io/kubosa/packages/spark-project
+    tag: 0.1.0-p02
     interval: 1m
   targetNamespace: kubocd
   createNamespace: false
@@ -23,6 +23,14 @@ spec:
       secretKey: kgNzt2Lzx6qLwBboN1BeQFpuZnZCmIlhzruyCO9f
     sparkOperator:
       enabled: true
+    system:
+      tolerations:
+        - key: node-role.kubernetes.io
+          operator: "Equal"
+          effect: NoSchedule
+          value: services
+      nodeSelector:
+        node-role.kubernetes.io: "services"
 
   roles:
     - projectSpark1

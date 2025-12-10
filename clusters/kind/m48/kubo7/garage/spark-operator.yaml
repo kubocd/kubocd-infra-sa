@@ -1,0 +1,29 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: spark-operator
+  namespace: kubocd
+spec:
+  description: Global instance of spark operator
+  protected: false
+  package:
+    repository: quay.io/kubosa/packages/spark-operator
+    tag: 2.4.0-p02
+    interval: 1m
+  targetNamespace: spark-operator
+  createNamespace: true
+  parameters:
+    jobNamespaces: [""]
+    tolerations:
+      - key: node-role.kubernetes.io
+        operator: "Equal"
+        effect: NoSchedule
+        value: services
+    nodeSelector:
+      node-role.kubernetes.io: "services"
+
+  roles:
+    - sparkOperator
+
+

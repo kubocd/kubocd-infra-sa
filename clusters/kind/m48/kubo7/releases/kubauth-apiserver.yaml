@@ -9,12 +9,12 @@ spec:
   protected: false
   package:
     repository: quay.io/kubosa/packages/kubauth-apiserver
-    tag: 0.1.0-p01
+    tag: 0.1.0-p02
     interval: 30m
   targetNamespace: kubauth
   createNamespace: true
   specPatchByModule:
-    apiserver:
+    noname:
       values:
         image:
           pullPolicy: Always

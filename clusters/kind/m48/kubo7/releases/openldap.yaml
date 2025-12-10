@@ -11,7 +11,7 @@ spec:
   description: An LDAP server
   package:
     repository: quay.io/kubosa/packages/openldap
-    tag: 4.3.3-p01
+    tag: 4.3.3-p02
     interval: 30m
   targetNamespace: openldap
   createNamespace: true
@@ -21,6 +21,13 @@ spec:
       password: admin123
     config:
       password: admin123
+    tolerations:
+      - key: node-role.kubernetes.io
+        operator: "Equal"
+        effect: NoSchedule
+        value: services
+    nodeSelector:
+      node-role.kubernetes.io: "services"
     customLdifFiles:
       # To generate passwords: 'slappasswd -s myPassword' on an ldap node
       00-root.ldif: |-

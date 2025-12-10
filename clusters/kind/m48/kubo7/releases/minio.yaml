@@ -10,7 +10,7 @@ spec:
   protected: false
   package:
     repository: quay.io/kubosa/packages/minio
-    tag: 5.4.0-p01
+    tag: 5.4.0-p02
     interval: 30s
   targetNamespace: minio
   createNamespace: true
@@ -27,12 +27,19 @@ spec:
     vip:
       enabled: true
       host: "{{ .Release.metadata.name }}.{{ .Context.cluster.domain }}"
+    tolerations:
+      - key: node-role.kubernetes.io
+        operator: "Equal"
+        effect: NoSchedule
+        value: services
+    nodeSelector:
+      node-role.kubernetes.io: "services"
     oidc:
       enabled: true
       clientId: minio
       clientSecret: minioSecret
   specPatchByModule:
-    main:
+    noname:
       values:
         minio:
           clusterIssuer: cluster-odp

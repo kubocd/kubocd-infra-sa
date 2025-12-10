@@ -8,7 +8,7 @@ spec:
   description: Sample oidc application
   protected: false
   package:
-    repository: quay.io/kubosa/packages/weboidc
+    repository: quay.io/kubosa/packages/weboidc-kubauth
     tag: 0.1.0-p01
     interval: 30m
   targetNamespace: weboidc
@@ -17,10 +17,10 @@ spec:
     name: WEBOIDC-2
     host: weboidc2
     oidc:
-      clientId: weboidc2
       clientSecret: weboidc2Secret
+      clientSecretHash: "$2a$12$FBQVE7hcu5o91EHbG8G5mOHtnJiLT0a25JRM95GgZX2kpmAUEpyMi"
   specPatchByModule:
-    main:
+    noname:
       values:
         image:
           pullPolicy: Always

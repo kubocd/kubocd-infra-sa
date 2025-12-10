@@ -9,12 +9,12 @@ spec:
   protected: false
   package:
     repository: quay.io/kubosa/packages/kubauth
-    tag: 0.1.2-p01
+    tag: 0.1.2-p02
     interval: 30m
   targetNamespace: kubauth
   createNamespace: true
   specPatchByModule:
-    main:
+    noname:
       values:
         oidc:
           dumpExchanges: 0
@@ -22,6 +22,15 @@ spec:
             pullPolicy: Always
             #tag: 0.1.0-snapshot-ubuntu
   parameters:
+#    deployInControlPlane: true
+    deployInControlPlane: false
+    tolerations:
+      - key: node-role.kubernetes.io
+        operator: "Equal"
+        effect: NoSchedule
+        value: services
+    nodeSelector:
+      node-role.kubernetes.io: "services"
     oidc:
       logger:
         level: debug
