@@ -1,0 +1,14 @@
+---
+apiVersion: kubocd.kubotal.io/v1alpha1
+kind: Release
+metadata:
+  name: redis1
+  namespace: default
+spec:
+  package:
+    repository: quay.io/kubosa/packages/redis
+    tag: 24.0.0-p01
+    interval: 30m
+  parameters:
+    commander:
+      host: redis1

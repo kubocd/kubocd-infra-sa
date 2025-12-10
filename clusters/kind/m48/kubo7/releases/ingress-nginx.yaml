@@ -11,8 +11,10 @@ spec:
   protected: true
   package:
     repository: quay.io/kubosa/packages/ingress-nginx
-    tag: 4.12.1-p01
+    tag: 4.12.1-p02
     interval: 30m
   targetNamespace: ingress-nginx
   createNamespace: true
+  parameters:
+    deployInControlPlane: true
 

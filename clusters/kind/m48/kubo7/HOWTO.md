@@ -139,6 +139,41 @@ docker update --restart=no kubo7-worker3
 docker update --restart=no kubo7-worker4
 ```
 
+# Set flux deployment on controlPlane
+
+
+In flux-system/kustomization, add patches:
+
+```
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- gotk-components.yaml
+- gotk-sync.yaml
+patches:
+  - patch: |
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --requeue-dependency=5s
+    target:
+      kind: Deployment
+      name: "(kustomize-controller|helm-controller)"
+  - patch: |
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value: 
+          node-role.kubernetes.io/control-plane: ""
+      - op: add
+        path: /spec/template/spec/tolerations
+        value:
+          - key: node-role.kubernetes.io/control-plane
+            operator: Exists
+    target:
+      kind: Deployment
+```
+
+NB: Integrate also 'Decrease reaction time on dependencies'
+
 ---------------------------------------------------------------------------------------------------------
 
 COMMIT LAST UPDATE ON kubocd-infra-sa
@@ -154,7 +189,6 @@ flux bootstrap github \
 --interval 15s \
 --owner kubocd \
 --read-write-key \
---toleration-keys=node-role.kubernetes.io/control-plane \
 --path=clusters/kind/m48/kubo7/flux
 
 ```

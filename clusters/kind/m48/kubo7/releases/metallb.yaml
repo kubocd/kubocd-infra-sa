@@ -11,8 +11,16 @@ spec:
   protected: true
   package:
     repository: quay.io/kubosa/packages/metallb
-    tag: 0.14.9-p01
+    tag: 0.14.9-p02
     interval: 30m
   targetNamespace: metallb
   createNamespace: true
+  parameters:
+    deployInControlPlane: true
+    speakerTolerations:
+      - key: node-role.kubernetes.io
+        operator: "Equal"
+        effect: NoSchedule
+        value: services
+
 

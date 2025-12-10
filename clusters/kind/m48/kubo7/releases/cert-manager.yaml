@@ -11,9 +11,10 @@ spec:
   protected: true
   package:
     repository: quay.io/kubosa/packages/cert-manager
-    tag: 1.17.1-p01
+    tag: 1.17.1-p02
     interval: 30m
   parameters:
+    deployInControlPlane: true
     trust:
       enabled: true
       bundle:
