@@ -13,7 +13,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: metallb-main
+  name: metallb
   namespace: default
 spec:
   chart:
@@ -28,7 +28,7 @@ spec:
   install:
     createNamespace: true
   interval: 30m0s
-  releaseName: metallb-main
+  releaseName: metallb
   targetNamespace: metallb
   values:
     controller:
@@ -80,7 +80,7 @@ spec:
     name: metallb-pool
     namespace: default
   dependsOn:
-    - name: metallb-main
+    - name: metallb
       namespace: default
   install:
     createNamespace: true

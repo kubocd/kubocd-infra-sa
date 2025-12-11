@@ -59,7 +59,7 @@ spec:
     # Control access to kubauth local users (ucrd)
     roleBindings:
       - name: oidc-kubauth-admin-ucrd
-        role: kubauth-main-ucrd-admin
+        role: kubauth-ucrd-admin
         namespace: kubauth-users
         groups:
           - oidc-kubauth-admins

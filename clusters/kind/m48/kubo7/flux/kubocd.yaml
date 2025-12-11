@@ -79,7 +79,7 @@ spec:
         description: Ldap configuration
         context:
           ldap:
-            host: openldap-main.openldap.svc
+            host: openldap.openldap.svc
             insecureNoSSL: false
             rootCaSecret: certs-bundle
             bindDN: cn=admin,dc=mycompany,dc=com

@@ -15,7 +15,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: ingress-nginx-main
+  name: ingress-nginx
   namespace: default
 spec:
   chart:
@@ -30,7 +30,7 @@ spec:
   install:
     createNamespace: true
   interval: 30m0s
-  releaseName: ingress-nginx-main
+  releaseName: ingress-nginx
   targetNamespace: ingress-nginx
   values:
     admissionWebhooks:
